@@ -1,0 +1,27 @@
+{
+	"genome": "sacCer3",
+	"historyId": "6fb17d0cc6e8fae5",
+	"parameters": {},
+	"projectId": "YEP-V2",
+	"libraryType": "ChIP-exo",
+	"sampleId": "Reb1",
+	"run": 396,
+	"libraryId": "compositeTest2",
+	"statsToolId": "script_manager_4color_stencil",
+	"toolCategory": "Unknown",
+	"toolStderr": "",
+	"createdBy": "cegr@psu.edu",
+	"token": "a23Ta13q",
+	"submitter": "cegr@psu.edu",
+	"workflowId": "unknown",
+	"statistics": [{}],
+	"libraryData": [{
+    "id": "0c5d7fa180a56458",
+    "dataType": "linePlot",
+    "layoutId": "Motif_Analysis",
+    "tabId": "Motif1",
+    "URL": "http://128.84.9.200:8080/datasets/0c5d7fa180a56458/display?preview=False",
+    "stepId": "0"
+  }],
+	"history_url": "http://128.84.9.200:8080/histories/view?id=6fb17d0cc6e8fae5"
+}

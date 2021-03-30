@@ -1,0 +1,102 @@
+{
+	"genome": "sacCer3",
+	"historyId": "6fb17d0cc6e8fae5",
+	"parameters": {},
+	"projectId": "YEP",
+	"libraryType": "ChIP-exo",
+	"sampleId": "Reb1-12141",
+	"libraryId": "Reb1-12141",
+	"createdBy": "cegr@psu.edu",
+	"token": "a23Ta13q",
+	"submitter": "cegr@psu.edu",
+	"workflowId": "unknown",
+	"libraryData": [{
+    "id": "0c5d7fa180a56458",
+    "dataType": "png",
+    "layoutId": "Transcribed_Features",
+    "tabId": "ChExMix",
+    "URL": "http://localhost:8081/localdata/12141/Transcribed-0.png",
+    "stepId": "0"
+  },
+	{
+    "id": "0c5d7fa180a56458",
+    "dataType": "png",
+    "layoutId": "Transcribed_Features",
+    "tabId": "ChExMix",
+    "URL": "http://localhost:8081/localdata/12141/Transcribed-1.png",
+    "stepId": "1"
+  },
+	{
+    "id": "0c5d7fa180a56458",
+    "dataType": "png",
+    "layoutId": "Transcribed_Features",
+    "tabId": "ChExMix",
+    "URL": "http://localhost:8081/localdata/12141/Transcribed-2.png",
+    "stepId": "2"
+  },
+	{
+    "id": "0c5d7fa180a56458",
+    "dataType": "png",
+    "layoutId": "Transcribed_Features",
+    "tabId": "ChExMix",
+    "URL": "http://localhost:8081/localdata/12141/Transcribed-3.png",
+    "stepId": "3"
+  },
+	{
+    "id": "0c5d7fa180a56458",
+    "dataType": "png",
+    "layoutId": "Transcribed_Features",
+    "tabId": "ChExMix",
+    "URL": "http://localhost:8081/localdata/12141/Transcribed-4.png",
+    "stepId": "4"
+  },
+	{
+		"id": "0c5d7fa180a56458",
+		"dataType": "png",
+		"layoutId": "NonCoding_Features",
+		"tabId": "ChExMix",
+		"URL": "http://localhost:8081/localdata/12141/NonCoding-0.png",
+		"stepId": "0"
+	},
+	{
+		"id": "0c5d7fa180a56458",
+		"dataType": "png",
+		"layoutId": "NonCoding_Features",
+		"tabId": "ChExMix",
+		"URL": "http://localhost:8081/localdata/12141/NonCoding-1.png",
+		"stepId": "1"
+	},
+	{
+		"id": "0c5d7fa180a56458",
+		"dataType": "png",
+		"layoutId": "NonCoding_Features",
+		"tabId": "ChExMix",
+		"URL": "http://localhost:8081/localdata/12141/NonCoding-2.png",
+		"stepId": "2"
+	},
+	{
+	  "id": "0c5d7fa180a56458",
+	  "dataType": "png",
+	  "layoutId": "NonTranscribed_Features",
+	  "tabId": "ChExMix",
+	  "URL": "http://localhost:8081/localdata/12141/NonTranscribed-0.png",
+	  "stepId": "0"
+	},
+	{
+		"id": "0c5d7fa180a56458",
+		"dataType": "png",
+		"layoutId": "NonTranscribed_Features",
+		"tabId": "ChExMix",
+		"URL": "http://localhost:8081/localdata/12141/NonTranscribed-1.png",
+		"stepId": "1"
+	},
+	{
+		"id": "0c5d7fa180a56458",
+		"dataType": "png",
+		"layoutId": "NonTranscribed_Features",
+		"tabId": "ChExMix",
+		"URL": "http://localhost:8081/localdata/12141/NonTranscribed-2.png",
+		"stepId": "2"
+	}
+	]
+}
