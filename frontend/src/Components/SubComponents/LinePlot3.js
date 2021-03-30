@@ -12,8 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { ResponsiveLine, Line } from "@nivo/line";
 import FullScreenDialog from "./FullScreenDialog3";
 
-// component styles
-
+// Component styles
 const useStyles = makeStyles({
   card :props=> ({
     minWidth: 275

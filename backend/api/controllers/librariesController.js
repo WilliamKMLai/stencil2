@@ -10,7 +10,6 @@ const myUser = require("../models/userModel");
 
 //exports.use(session({secret:process.env.SESSION_ENCRYPTION, cookie: { maxAge: 24 * 60 * 60 * 1000 }, saveUninitialized:false}));
 
-
 exports.queryUserId = (req, res, next) => {
   let queryId = req.params.uid;
 
@@ -89,11 +88,9 @@ exports.allUsers = (req, res, next) => {
   }
 }
 
-
 exports.getAllLibraryMetaInfo = (req, res, next) => {
-  console.log("get all libraries");
-  console.log( req.session.username);
-
+  // console.log("get all libraries");
+  // console.log( req.session.username);
   if (req.session.loggedin){
     myLib.find()
     .exec()
@@ -140,7 +137,6 @@ exports.getAllLibraryMetaInfo = (req, res, next) => {
 
 };
 
-
 exports.queryLibraryDataById = (req, res, next) => {
   const responseMsg = {
     count:0,
@@ -148,50 +144,86 @@ exports.queryLibraryDataById = (req, res, next) => {
     libraries: []
   };
   let queryId = req.params.dbid;
-  console.log("query the db");
-  console.log(queryId);
+  //console.log("query the db", queryId);
   myLib.findOne({'_id': queryId})
     .exec()
     .then(doc => {
-      
+
       returnMessage = "";
 
       var getList = [];
       var URLList = [];
       var url2data = {};
-      
+
+      if ((doc!==null) && (doc.libraryData!==undefined)){
+              doc.libraryData.forEach(item => {
+                if ((item.preLoadData!==null) && (item.dataType ==="linePlot")){
+                  var originalURL = item.URL;
+                  //console.log(item.URL);
+                  getList.push(axios.get(originalURL));
+                  URLList.push(originalURL);
+                }
+                if ((item.preLoadData!==null) && (item.dataType ==="barchart")){
+                  var originalURL = item.URL;
+                  //console.log(item.URL);
+                  getList.push(axios.get(originalURL));
+                  URLList.push(originalURL);
+                }
+              })
+            }
+
+            if (getList.length>0){
+              axios.all(getList)
+              .then (axios.spread((...responses) =>{
+                let i=0;
+                responses.forEach( item =>{
+                    url2data[URLList[i]]= item.data;
+                    i = i +1;
+                    doc.libraryData.forEach(item=>{
+                      if (url2data[item.URL] !== undefined) {
+                        item["preLoadData"] =url2data[item.URL];
+                      }
+                    })
+                  }
+                );
+
+{/*}
+      //console.log(doc);
+      //console.log(doc.libraryData);
       if ((doc!==null) && (doc.libraryData!==undefined)){
         doc.libraryData.forEach(item => {
-          if ((item.preLoadData!==null) && (item.dataType ==="linePlot")){
-            var originalURL = item.URL;
-            console.log("item.URL");
+          // console.log(item);
+          if ((item.get('preLoadData')!==null) && (item.get('dataType')==="linePlot")){
+            var originalURL = item.get('URL');
             getList.push(axios.get(originalURL));
             URLList.push(originalURL);
           }
         })
       }
+      //console.log("URLs: ", URLList);
+      //console.log("Parsed URLs: ", getList);
 
       if (getList.length>0){
         axios.all(getList)
         .then (axios.spread((...responses) =>{
-          
-          
           let i=0;
           responses.forEach(
             item =>{
+              //console.log(item.data);
               url2data[URLList[i]]= item.data;
               i = i +1;
               doc.libraryData.forEach(item=>{
-                if (url2data[item.URL] !== undefined) {
-                  item["preLoadData"] =url2data[item.URL]; 
-
+                //console.log(item);
+                if (url2data[item.get('URL')] !== undefined) {
+                  //console.log(item.get('URL'));
+                  item.set("preLoadData", url2data[item.get('URL')]);
+                  //console.log(item.get("preLoadData"));
                 }
               })
-              
             }
           );
 
-
+*/}
           const response = {
             count: 1,
             message: returnMessage,
@@ -247,8 +279,6 @@ exports.queryLibraryDataById = (req, res, next) => {
     });
 };
 
-
-
 exports.createNewLibrary = (req, res, next) => {
 
   const responseMsg = {
@@ -256,7 +286,7 @@ exports.createNewLibrary = (req, res, next) => {
     message: "",
     libraries: []
   };
-  if (req.body.libraryId === undefined) 
+  if (req.body.libraryId === undefined)
   {
     responseMsg["message"] = "The object misses the required field libraryId!";
     res.status(500).json(responseMsg);
@@ -264,33 +294,33 @@ exports.createNewLibrary = (req, res, next) => {
   }
 
 
-  if (req.body.sampleId === undefined) 
+  if (req.body.sampleId === undefined)
   {
     req.body.sampleId = req.libraryId;
   }
 
-  if (req.body.projectId === undefined) 
+  if (req.body.projectId === undefined)
   {
     responseMsg["message"] = "The object misses the required field projectId!";
     res.status(500).json(responseMsg);
     return
   }
-  
-  if (req.body.groupTag === undefined) 
+
+  if (req.body.groupTag === undefined)
   {
     req.body.groupTag = {};
   }
 
-  if (req.body.libraryType === undefined) 
+  if (req.body.libraryType === undefined)
   {
     req.body.libraryType = "";
   }
-  if (req.body.submitter === undefined) 
+  if (req.body.submitter === undefined)
   {
     req.body.submitter = "";
   }
 
-  if (req.body.libraryData === undefined) 
+  if (req.body.libraryData === undefined)
   {
     req.body.libraryData = [];
   }
@@ -348,7 +378,7 @@ exports.createNewLibrary = (req, res, next) => {
         //library exists in the db, update the database
         doc.updateTimestamp = Date.now();
         doc.updatedBy = submittedBy;
-  
+
         var docChangedFlag = 0;
 
         //check any new or updated libraryData element
@@ -377,13 +407,13 @@ exports.createNewLibrary = (req, res, next) => {
             }
           }
         )
-  
+
         if (docChangedFlag === 1)
         {
           console.log("the doc is changed, and need to save");
           doc.save();
         }
-  
+
         responseMsg["message"] = "success";
         res.status(202).json(responseMsg);
         return;
@@ -402,14 +432,14 @@ exports.createNewLibrary = (req, res, next) => {
           libraryType: req.body.libraryType,
           libraryData: postedlibraryData,
         });
-        
+
         newLib.status = "1";
         newLib.createdBy = submittedBy;
-        newLib.updatedBy = submittedBy;      
+        newLib.updatedBy = submittedBy;
         newLib.createTimestamp = Date.now();
         newLib.updateTimestamp = newLib.createTimestamp;
-    
-        
+
+
         newLib.save()
           .then(result => {
             res.status(201).json({
@@ -446,4 +476,3 @@ exports.createNewLibrary = (req, res, next) => {
   });
 
 };
-

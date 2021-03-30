@@ -55,11 +55,11 @@ class Library extends Component {
   };
 
   loadData = id => () => {
-    let dataURL =
-    Config.settings.apiURL + Config.settings.libraryPageEndPoint + "/" + id;
+    let dataURL = Config.settings.apiURL + Config.settings.libraryPageEndPoint + "/" + id;
+    //console.log(dataURL);
     axios
       .get(dataURL)
-      .then(res => {        
+      .then(res => {
         this.setState({
           dbid: id,
           data: res.data.libraries[0],
