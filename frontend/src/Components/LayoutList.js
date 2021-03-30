@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import CardContent from "@material-ui/core/CardContent";
 import { Grid } from "@material-ui/core";
+
 import Config from "../Config";
 import ImageArray from "./Sections/ImageArray";
-// Sectional components
-
 
 const styles = theme => ({
   root: {
@@ -77,7 +77,7 @@ class LayoutList extends React.Component {
       {
         layoutIdToTitle[item.layoutId] = item.layoutTitle? item.layoutTitle: item.layoutId;
         layoutIdToData[item.layoutId] = {};
-        layoutTabs[item.layoutId] = {};   
+        layoutTabs[item.layoutId] = {};
       }
 
       if (item.tabId ===""){
@@ -93,7 +93,7 @@ class LayoutList extends React.Component {
       layoutIdToData[item.layoutId][item.tabId][item.stepId]=item;
     }
 
-    for (let layoutId of Object.keys(layoutIdToTitle).sort()) 
+    for (let layoutId of Object.keys(layoutIdToTitle).sort())
     {
       let layoutTitle = layoutIdToTitle[layoutId];
       let tabTitles = [];
@@ -125,13 +125,13 @@ class LayoutList extends React.Component {
         direction= layoutFormat["direction"]
       }
 
-      
+
       for (let myTabId of Object.keys(layoutTabs[layoutId]).sort())
       {
         tabTitles.push(layoutTabs[layoutId][myTabId]);
         //let thisTab = layoutIdToData[layoutId][myTabId].sort((x, y) => {return (x["stepId"] > y["stepId"])?1:-1})
         let thisTab = layoutIdToData[layoutId][myTabId];
-        tabData.push(thisTab);       
+        tabData.push(thisTab);
       }
       content.push(
         <Grid item key={layoutId}>
