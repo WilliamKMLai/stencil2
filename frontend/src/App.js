@@ -144,7 +144,7 @@ class App extends Component {
             //console.log("check default proj: " + proj);
             if ((proj === "") && (theProjList.length>0)) {
               proj = theProjList[0];
-              console.log("default proj: " + proj);
+              //console.log("default proj: " + proj);
             }
 
             if (theProjList){

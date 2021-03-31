@@ -10,9 +10,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Radio from "@material-ui/core/Radio";
 
-import LinePlot from "../SubComponents/LinePlot3";
-import BarChart from "../SubComponents/BarChart2";
-import ScatterPlot from "../SubComponents/ScatterPlot";
+import LinePlot from "../Charts/LinePlot3";
+import BarChart from "../Charts/BarChart";
+import ScatterPlot from "../Charts/ScatterPlot";
 
 const styles = {
   card: {
@@ -103,7 +103,8 @@ class ImageArray extends React.Component {
         case "scatterplot":
           //console.log(item);
           //console.log(item.preLoadData);
-          return (sizes===undefined)?(<Grid item key={stepId}>
+          return (sizes===undefined)?(
+            <Grid item key={stepId}>
             <ScatterPlot chartData={item.preLoadData?item.preLoadData: {}} width={600} height={500} />
             </Grid>):(
             <Grid item key={stepId}>
@@ -151,7 +152,7 @@ class ImageArray extends React.Component {
         {
           stepId.map(stepIndex=>{
             return (
-              <Grid item>
+              <Grid item key={Math.random().toString(36).substr(10, 17)}>
                 <Radio
                   checked={seletedStepId === stepIndex}
                   onChange={handleRadioChange}
@@ -252,14 +253,10 @@ class ImageArray extends React.Component {
                       row.map(stepId=>{
                         if (Array.isArray(stepId)) {
                           radioButtonGroupIndex = radioButtonGroupIndex +1;
-                          return (
-                            <this.RadioGroup radioButtonGroupIndex={radioButtonGroupIndex}  plottitle={plottitle} stepId={stepId} thisTab={thisTab} plotsizes={plotsizes} />
-                          )
+                          return ( <this.RadioGroup key={Math.random().toString(36).substr(10, 17)} radioButtonGroupIndex={radioButtonGroupIndex}  plottitle={plottitle} stepId={stepId} thisTab={thisTab} plotsizes={plotsizes} /> )
                         }
                         else {
-                          return (
-                            <this.Plot imgObj={thisTab[stepId]} sizes={plotsizes[stepId]} />
-                          )
+                          return ( <this.Plot key={Math.random().toString(36).substr(10, 17)} imgObj={thisTab[stepId]} sizes={plotsizes[stepId]} /> )
                         }
                       })
                     }
@@ -273,34 +270,23 @@ class ImageArray extends React.Component {
               <Grid
                   container
                   direction="row"
-                  spacing={"8"}
+                  spacing={8}
                   justify="flex-start"
                   >
              {
               //show the layout by column
               tablayout.map(row=>{
                 return (
-                  <Grid item>
-                  <Grid
-                  container
-                  spacing={2}
-                  direction="column"
-                  wrap="nowrap"
-                  justify="flex-start"
-                  className={classes.mainContainer}
-                  >
+                  <Grid item key={Math.random().toString(36).substr(10, 17)}>
+                  <Grid container spacing={2} direction="column" wrap="nowrap" justify="flex-start" className={classes.mainContainer}>
                     {
                       row.map(stepId=>{
                         if (Array.isArray(stepId)) {
                           radioButtonGroupIndex = radioButtonGroupIndex +1;
-                          return (
-                            <this.RadioGroup radioButtonGroupIndex={radioButtonGroupIndex}  plottitle={plottitle} stepId={stepId} thisTab={thisTab} plotsizes={plotsizes} />
-                          )
+                          return ( <this.RadioGroup key={Math.random().toString(36).substr(10, 17)} radioButtonGroupIndex={radioButtonGroupIndex}  plottitle={plottitle} stepId={stepId} thisTab={thisTab} plotsizes={plotsizes} /> )
                         }
                         else {
-                          return (
-                            <this.Plot imgObj={thisTab[stepId]} sizes={plotsizes[stepId]} />
-                          )
+                          return ( <this.Plot key={Math.random().toString(36).substr(10, 17)} imgObj={thisTab[stepId]} sizes={plotsizes[stepId]} /> )
                         }
                       })
                     }

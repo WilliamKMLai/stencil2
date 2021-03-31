@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // sub component
 import { ResponsiveLine, Line } from "@nivo/line";
-import FullScreenDialog from "./FullScreenDialog3";
+import FullScreenDialog from "../SubComponents/FullScreenDialog3";
 
 // Component styles
 const useStyles = makeStyles({
@@ -31,7 +31,7 @@ function FeatureCompositePlot(props) {
   const  classes  = useStyles(props);
 
   var chartData = props.chartData;
-  console.log("Chart data: ", chartData);
+  //console.log("Chart data: ", chartData);
 
   if (chartData["Xaxis"] === undefined ){
     return "The data does not hava a required key Xaxis";
@@ -235,7 +235,7 @@ function FeatureCompositePlot(props) {
 }
 
 FeatureCompositePlot.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object
 };
 
 export default FeatureCompositePlot;

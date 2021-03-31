@@ -6,7 +6,7 @@
 	"libraryType": "ChIP-exo",
 	"sampleId": "Reb1",
 	"run": 396,
-	"libraryId": "localSample2",
+	"libraryId": "localSample",
 	"statsToolId": "script_manager_4color_stencil",
 	"createdBy": "cegr@psu.edu",
 	"token": "a23Ta13q",
