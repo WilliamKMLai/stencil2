@@ -241,14 +241,7 @@ class ImageArray extends React.Component {
               //show the layout by rows
               tablayout.map(row=>{
                 return (
-                  <Grid
-                  container
-                  spacing={2}
-                  direction="row"
-                  wrap="nowrap"
-                  justify="flex-start"
-                  className={classes.mainContainer}
-                  >
+                  <Grid container key={Math.random().toString(36).substr(10, 17)} spacing={2} direction="row" wrap="nowrap" justify="flex-start" className={classes.mainContainer}>
                     {
                       row.map(stepId=>{
                         if (Array.isArray(stepId)) {

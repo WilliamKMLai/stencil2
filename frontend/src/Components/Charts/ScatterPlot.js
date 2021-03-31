@@ -40,8 +40,6 @@ function ScatterPlot(props) {
           xScale={{ type: 'linear', min: 'auto', max: 'auto' }}
           yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
           nodeSize={5}
-          axisTop={null}
-          axisRight={null}
           axisBottom={{
               orient: 'bottom',
               tickSize: 5,
