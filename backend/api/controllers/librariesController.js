@@ -157,17 +157,13 @@ exports.queryLibraryDataById = (req, res, next) => {
 
       if ((doc!==null) && (doc.libraryData!==undefined)){
               doc.libraryData.forEach(item => {
-                if ((item.preLoadData!==null) && (item.dataType ==="linePlot")){
-                  var originalURL = item.URL;
-                  //console.log(item.URL);
-                  getList.push(axios.get(originalURL));
-                  URLList.push(originalURL);
-                }
-                if ((item.preLoadData!==null) && (item.dataType ==="barchart")){
-                  var originalURL = item.URL;
-                  //console.log(item.URL);
-                  getList.push(axios.get(originalURL));
-                  URLList.push(originalURL);
+                if ((item.preLoadData!==null)) {
+                  if(item.dataType ==="linePlot" || item.dataType ==="barchart" || item.dataType ==="scatterplot") {
+                    var originalURL = item.URL;
+                    //console.log(item.URL);
+                    getList.push(axios.get(originalURL));
+                    URLList.push(originalURL);
+                  }
                 }
               })
             }

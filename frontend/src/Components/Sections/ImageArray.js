@@ -12,6 +12,7 @@ import Radio from "@material-ui/core/Radio";
 
 import LinePlot from "../SubComponents/LinePlot3";
 import BarChart from "../SubComponents/BarChart2";
+import ScatterPlot from "../SubComponents/ScatterPlot";
 
 const styles = {
   card: {
@@ -79,7 +80,6 @@ class ImageArray extends React.Component {
           <img src={item.URL} alt={item.dataLabel} title={item.dataLabel} width={sizes[0]} height={sizes[1]} />
           </Grid>)
         ;
-
         case "lineplot":
           //console.log(item);
           //console.log(item.preLoadData);
@@ -98,6 +98,16 @@ class ImageArray extends React.Component {
             </Grid>):(
             <Grid item key={stepId}>
             <BarChart chartData={item.preLoadData?item.preLoadData: {}} width={sizes[0]} height={sizes[1]} />
+            </Grid>
+          );
+        case "scatterplot":
+          //console.log(item);
+          //console.log(item.preLoadData);
+          return (sizes===undefined)?(<Grid item key={stepId}>
+            <ScatterPlot chartData={item.preLoadData?item.preLoadData: {}} width={600} height={500} />
+            </Grid>):(
+            <Grid item key={stepId}>
+            <ScatterPlot chartData={item.preLoadData?item.preLoadData: {}} width={sizes[0]} height={sizes[1]} />
             </Grid>
           );
         default:

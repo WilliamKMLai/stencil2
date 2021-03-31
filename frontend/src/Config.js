@@ -31,6 +31,15 @@ const layoutFormat = {
     plotTitles: {2:"Forward", 3:"Reverse"}
   },
 
+  Scatter_Plot: {
+    layOut: [[0]],
+    direction: "column",
+    plotSizes: {
+      0:[800,400],
+    },
+    plotTitles: {2:"Forward", 3:"Reverse"}
+  },
+
   Transcribed_Features: {
     layOut: [ [0],[1],[2],[3], [4]],
     direction: "column",
