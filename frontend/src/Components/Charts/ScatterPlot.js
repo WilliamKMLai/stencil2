@@ -27,8 +27,29 @@ function ScatterPlot(props) {
   // plot settings
   const theme = {
     fontSize: 14,
-    fontFamily: "Roboto Slab"
+    fontFamily: "Roboto Slab",
+    axis: {
+        domain: {
+            line: {
+                stroke: "#000000",
+                strokeWidth: 1
+            }
+        },
+        ticks: {
+            line: {
+                stroke: "#000000",
+                strokeWidth: 1
+            }
+        }
+    },
+    grid: {
+      line: {
+        stroke: "#333333",
+        strokeWidth: 1
+      }
+    }
   };
+  const colors = { scheme: "spectral" };
 
   return (
     <div className={classes.card}>
@@ -36,6 +57,7 @@ function ScatterPlot(props) {
         <ResponsiveScatterPlotCanvas
           data={props.chartData}
           theme={theme}
+          colors={colors}
           margin={{ top: 60, right: 140, bottom: 70, left: 90 }}
           xScale={{ type: 'linear', min: 'auto', max: 'auto' }}
           yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
@@ -58,6 +80,46 @@ function ScatterPlot(props) {
               legendPosition: 'middle',
               legendOffset: -60
           }}
+          legends={[
+            {
+                anchor: 'bottom-right',
+                direction: 'column',
+                justify: false,
+                translateX: 130,
+                translateY: 0,
+                itemWidth: 100,
+                itemHeight: 12,
+                itemsSpacing: 5,
+                itemDirection: 'left-to-right',
+                symbolSize: 12,
+                symbolShape: 'rect',
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemOpacity: 1
+                        }
+                    }
+                ]
+            }
+        ]}
+        tooltip={({ node }) => (
+            <div
+                style={{
+                    color: node.style.color,
+                    background: '#333',
+                    padding: '12px 16px',
+                }}
+            >
+                <strong>
+                    {node.data.id} {node.data.serieId}
+                </strong>
+                <br />
+                {`x: ${node.data.formattedX}`}
+                <br />
+                {`y: ${node.data.formattedY}`}
+            </div>
+        )}
         />
       </CardContent>
     </div>
