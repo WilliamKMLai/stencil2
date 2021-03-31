@@ -157,13 +157,12 @@ exports.queryLibraryDataById = (req, res, next) => {
 
       if ((doc!==null) && (doc.libraryData!==undefined)){
               doc.libraryData.forEach(item => {
-                if ((item.preLoadData!==null)) {
-                  if(item.dataType ==="linePlot" || item.dataType ==="barchart" || item.dataType ==="scatterplot") {
-                    var originalURL = item.URL;
-                    //console.log(item.URL);
+                //console.log(item);
+                if(item.get("dataType")==="linePlot" || item.get("dataType")==="barchart" || item.get("dataType")==="scatterplot") {
+                    var originalURL = item.get("URL");
+                    //console.log(originalURL);
                     getList.push(axios.get(originalURL));
                     URLList.push(originalURL);
-                  }
                 }
               })
             }
@@ -173,53 +172,20 @@ exports.queryLibraryDataById = (req, res, next) => {
               .then (axios.spread((...responses) =>{
                 let i=0;
                 responses.forEach( item =>{
+                    //console.log(item);
                     url2data[URLList[i]]= item.data;
                     i = i +1;
                     doc.libraryData.forEach(item=>{
-                      if (url2data[item.URL] !== undefined) {
-                        item["preLoadData"] =url2data[item.URL];
+                      //console.log(item);
+                      if (url2data[item.get("URL")] !== undefined) {
+                        item.set("preLoadData", url2data[item.get("URL")]);
+                        //console.log(url2data[item.get("URL")]);
+                        //console.log(item["preLoadData"]);
                       }
                     })
                   }
                 );
 
-{/*}
-      //console.log(doc);
-      //console.log(doc.libraryData);
-      if ((doc!==null) && (doc.libraryData!==undefined)){
-        doc.libraryData.forEach(item => {
-          // console.log(item);
-          if ((item.get('preLoadData')!==null) && (item.get('dataType')==="linePlot")){
-            var originalURL = item.get('URL');
-            getList.push(axios.get(originalURL));
-            URLList.push(originalURL);
-          }
-        })
-      }
-      //console.log("URLs: ", URLList);
-      //console.log("Parsed URLs: ", getList);
-
-      if (getList.length>0){
-        axios.all(getList)
-        .then (axios.spread((...responses) =>{
-          let i=0;
-          responses.forEach(
-            item =>{
-              //console.log(item.data);
-              url2data[URLList[i]]= item.data;
-              i = i +1;
-              doc.libraryData.forEach(item=>{
-                //console.log(item);
-                if (url2data[item.get('URL')] !== undefined) {
-                  //console.log(item.get('URL'));
-                  item.set("preLoadData", url2data[item.get('URL')]);
-                  //console.log(item.get("preLoadData"));
-                }
-              })
-            }
-          );
-
-*/}
           const response = {
             count: 1,
             message: returnMessage,
