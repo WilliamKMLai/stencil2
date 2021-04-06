@@ -26,7 +26,7 @@ const layoutFormat = {
     layOut: [[0]],
     direction: "column",
     plotSizes: {
-      0:[800,400],
+      0:[600,400],
     },
     plotTitles: {2:"Forward", 3:"Reverse"}
   },

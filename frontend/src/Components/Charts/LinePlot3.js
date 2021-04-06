@@ -149,7 +149,7 @@ function FeatureCompositePlot(props) {
 
         data: plotData,
 
-        width: 1200,
+        width: 600,
         height: 500,
 
         ...plotOptions

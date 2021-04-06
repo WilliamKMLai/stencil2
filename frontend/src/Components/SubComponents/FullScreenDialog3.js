@@ -9,8 +9,10 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import AspectRatio from "@material-ui/icons/AspectRatio";
 import Tooltip from "@material-ui/core/Tooltip";
-import { ResponsiveLine } from "@nivo/line";
 import { CardContent } from "@material-ui/core";
+
+// Nivo charts
+import { ResponsiveLine } from "@nivo/line";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -73,7 +75,7 @@ export default function FullScreenDialog(props) {
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "Distance from TSS (bp)",
+      legend: "Distance from midpoint (bp)",
       legendOffset: 46,
       legendPosition: "middle",
       tickValues: props.axisTickValues
