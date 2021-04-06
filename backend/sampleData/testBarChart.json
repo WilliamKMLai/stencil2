@@ -18,7 +18,7 @@
 		"dataType": "barchart",
 		"layoutId": "Bar_Chart",
 		"tabId": "Motif1",
-		"URL": "http://localhost:8081/localdata/barchart.json",
+		"URL": "http://localhost:8081/localdata/barchart_v2.json",
 		"stepId": "0"
 	}]
 }

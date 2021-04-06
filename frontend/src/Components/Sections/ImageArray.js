@@ -93,11 +93,12 @@ class ImageArray extends React.Component {
         case "barchart":
           //console.log(item);
           //console.log(item.preLoadData);
+          //console.log(item.preLoadData.chartOptions);
           return (sizes===undefined)?(<Grid item key={stepId}>
-            <BarChart chartData={item.preLoadData?item.preLoadData: {}} width={600} height={500} />
+            <BarChart chartData={item.preLoadData?item.preLoadData.chartData: {}} chartOptions={item.preLoadData?item.preLoadData.chartOptions: {}} width={600} height={500} />
             </Grid>):(
             <Grid item key={stepId}>
-            <BarChart chartData={item.preLoadData?item.preLoadData: {}} width={sizes[0]} height={sizes[1]} />
+            <BarChart chartData={item.preLoadData?item.preLoadData.chartData: {}} chartOptions={item.preLoadData?item.preLoadData.chartOptions: {}} width={sizes[0]} height={sizes[1]} />
             </Grid>
           );
         case "scatterplot":
