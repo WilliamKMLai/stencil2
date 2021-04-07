@@ -11,8 +11,8 @@ import Tab from "@material-ui/core/Tab";
 import Radio from "@material-ui/core/Radio";
 
 import LinePlot from "../Charts/LinePlot3";
-import BarChart from "../Charts/BarChart";
-import ScatterPlot from "../Charts/ScatterPlot";
+import BarChart from "../Charts/BarChart_stencil";
+import ScatterPlot from "../Charts/ScatterPlot_stencil";
 
 const styles = {
   card: {
