@@ -44,7 +44,6 @@ export default function FullScreenDialog(props) {
   };
 
   let plotData = props.plotData;
-  let keys = props.keys;
   let plotOptions = props.plotOptions;
 
   return (
@@ -70,7 +69,7 @@ export default function FullScreenDialog(props) {
         {/* Expanded Chart */}
         <div className={classes.card}>
           <CardContent className={classes.chartContainer}>
-            <ResponsiveBar data={plotData} keys={keys} {...plotOptions} />
+            <ResponsiveBar data={plotData} {...plotOptions} />
           </CardContent>
         </div>
       </Dialog>
