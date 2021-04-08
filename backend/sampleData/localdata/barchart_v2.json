@@ -1,6 +1,6 @@
 {
 	"chartOptions": {
-		"keys": "p_adj_value,freq",
+		"keys": ["p_adj_value" , "freq" ],
 		"indexBy": "p_adj_value",
 		"layout": "vertical",
 		"groupMode": "stacked",

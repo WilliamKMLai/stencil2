@@ -28,13 +28,15 @@ const useStyles = makeStyles({
 function BarChart_stencil(props) {
   const  classes  = useStyles(props);
 
-  //let chartKeys = props.chartOptions['keys'].split(",");
+  if (props.chartData === undefined ){
+    return "No chart data detected";
+  }
 
   // BarChart settings
   //console.log(props.chartOptions);
   const plotOptions = {
-    ...(props.chartOptions['keys']?{keys: props.chartOptions['keys'].split(",")}:{ }),
-    ...(props.chartOptions['indexBy']?{indexBy: props.chartOptions['indexBy']}:{indexBy: props.chartOptions['keys'].split(",")[0]}),
+    ...(props.chartOptions['keys']?{keys: props.chartOptions['keys']}:{ }),
+    ...(props.chartOptions['indexBy']?{indexBy: props.chartOptions['indexBy']}:{indexBy: props.chartOptions['keys'][0]}),
     ...(props.chartOptions['layout']?{layout: props.chartOptions['layout']}:{layout: "vertical"}),
     ...(props.chartOptions['groupMode']?{groupMode: props.chartOptions['groupMode']}:{groupMode: "stacked"}),
     ...(props.chartOptions['colors']?{colors: props.chartOptions['colors']}:{colors: [ '#00ffff' ]}),
@@ -56,26 +58,25 @@ function BarChart_stencil(props) {
               { tickRotation: 45 }),
             ...(props.chartOptions['axisBottom']['legend']?
               { legend: props.chartOptions['axisBottom']['legend'] }:
-              { legend: props.chartOptions['keys'].split(",")[0]}),
+              { legend: props.chartOptions['keys'][0]}),
             ...(props.chartOptions['axisBottom']['legendPosition']?
               { legendPosition: props.chartOptions['axisBottom']['legendPosition'] }:
               { legendPosition: "middle"} ),
             ...(props.chartOptions['axisBottom']['legendOffset']?
               { legendOffset: props.chartOptions['axisBottom']['legendOffset'] }:
               { legendOffset: 60} )
-          }
+          },
       }
       :{
         axisBottom: {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 45,
-          legend: props.chartOptions['keys'].split(",")[0],
+          legend: props.chartOptions['keys'][0],
           legendPosition: "middle",
           legendOffset: 60
-        }
-      }
-    ),
+        },
+      }),
 
     ...(props.chartOptions['axisLeft']?{
             axisLeft: {
@@ -90,26 +91,25 @@ function BarChart_stencil(props) {
               { tickRotation: 0 }),
             ...(props.chartOptions['axisLeft']['legend']?
               { legend: props.chartOptions['axisLeft']['legend'] }:
-              { legend: props.chartOptions['keys'].split(",")[1]}),
+              { legend: props.chartOptions['keys'][1]}),
             ...(props.chartOptions['axisLeft']['legendPosition']?
               { legendPosition: props.chartOptions['axisLeft']['legendPosition'] }:
               { legendPosition: "middle"} ),
             ...(props.chartOptions['axisLeft']['legendOffset']?
               { legendOffset: props.chartOptions['axisLeft']['legendOffset'] }:
               { legendOffset: -50} )
-          }
+          },
       }
       :{
         axisLeft: {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: props.chartOptions['keys'].split(",")[1],
+          legend: props.chartOptions['keys'][1],
           legendPosition: "middle",
           legendOffset: -50
-        }
-      }
-    ),
+        },
+      }),
 
     margin: { top: 5,right: 20, bottom: 80, left: 60 },
     theme: {
@@ -123,6 +123,8 @@ function BarChart_stencil(props) {
     labelSkipWidth: 12,
     labelSkipHeight: 12,
     labelTextColor: "#000000",
+
+    //Always finish live chart with these
     animate: true,
     motionStiffness: 90,
     motionDamping: 15
