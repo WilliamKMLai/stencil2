@@ -28,57 +28,108 @@ const useStyles = makeStyles({
 function ScatterPlot_stencil(props) {
   const  classes  = useStyles(props);
 
-  // plot settings
+  if (props.chartData === undefined ){
+    return "No chart data detected";
+  }
+
+  // Scatterplot settings
   const plotOptions = {
-      theme: {
-        fontSize: 14,
-        fontFamily: "Roboto Slab",
-        axis: {
-            domain: {
+      ...(props.chartOptions['theme']?{
+        theme: {
+          ...(props.chartOptions['theme']['fontSize']?{ fontSize: props.chartOptions['theme']['fontSize']}:{ fontSize: 14 }),
+          ...(props.chartOptions['theme']['fontFamily']?{ fontFamily: props.chartOptions['theme']['fontFamily']}:{ fontFamily: "Roboto Slab" }),
+          ...(props.chartOptions['theme']['grid']?{
+            grid: {
+              ...(props.chartOptions['theme']['grid']['line']?{
                 line: {
-                    stroke: "#000000",
-                    strokeWidth: 1
+                  ...(props.chartOptions['theme']['grid']['line']['stroke']?{ stroke: props.chartOptions['theme']['grid']['line']['stroke'] }:{ stroke: "#333333" }),
+                  ...(props.chartOptions['theme']['grid']['line']['strokeWidth']?{ strokeWidth: props.chartOptions['theme']['grid']['line']['strokeWidth'] }:{ strokeWidth: 1 }),
                 }
-            },
-            ticks: {
-                line: {
-                    stroke: "#000000",
-                    strokeWidth: 1
-                }
+              }:{ line: { stroke: "#333333", strokeWidth: 1 } })
             }
+          }:{grid: { line: { stroke: "#333333", strokeWidth: 1 } } }),
+          axis: { domain: { line: { stroke: "#000000", strokeWidth: 1 } }, ticks: { line: { stroke: "#000000", strokeWidth: 1 } } },
         },
-        grid: {
-          line: {
-            stroke: "#333333",
-            strokeWidth: 1
-          }
+       }
+      :{
+        theme: {
+          fontSize: 14,
+          fontFamily: "Roboto Slab",
+          axis: { domain: { line: { stroke: "#000000", strokeWidth: 1 } }, ticks: { line: { stroke: "#000000", strokeWidth: 1 } } },
+          grid: { line: { stroke: "#333333", strokeWidth: 1 } }
         }
-      },
-      colors: { scheme: "spectral" },
-      margin: { top: 24, right: 24, bottom: 80, left: 80 },
-      xScale: { type: 'log', base: 10, min: '1', max: '1000000' },
-      axisBottom: {
-        tickValues: [0, 10, 100, 1000, 1000, 10000, 100000, 1000000, 10000000],
-        orient: 'bottom',
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 45,
-        legend: 'Mean of Normalized Counts',
-        legendPosition: 'middle',
-        legendOffset: 46
-      },
-      yScale: { type: 'linear', min: 'auto', max: 'auto' },
-      nodeSize: 5,
-      axisLeft: {
-          tickValues: [-4, -3, -2, -1, 0, 1, 2],
-          orient: 'left',
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: 'Log Fold Change',
-          legendPosition: 'middle',
-          legendOffset: -60
-      }
+      }),
+
+      ...(props.chartOptions['colors']?{ colors: props.chartOptions['colors'] }:{ colors: [ "#646464" ] }),
+      ...(props.chartOptions['nodeSize']?{ nodeSize: props.chartOptions['nodeSize'] }:{ nodeSize: 5 }),
+
+      ...(props.chartOptions['margin']?{
+        margin: {
+          ...(props.chartOptions['margin']['top']?{ top: props.chartOptions['margin']['top']}:{ top: 10 }),
+          ...(props.chartOptions['margin']['right']?{ right: props.chartOptions['margin']['right']}:{ right: 60 }),
+          ...(props.chartOptions['margin']['bottom']?{ bottom: props.chartOptions['margin']['bottom']}:{ bottom: 60 }),
+          ...(props.chartOptions['margin']['left']?{ left: props.chartOptions['margin']['left']}:{ left: 60 })
+        },
+      }:{
+        margin: { top: 10, right: 60, bottom: 60, left: 60 },
+      }),
+      ...(props.chartOptions['xScale']?{
+        xScale: {
+          ...(props.chartOptions['xScale']['type']?{ type: props.chartOptions['xScale']['type']}:{ type: 'linear' }),
+          ...(props.chartOptions['xScale']['base']?{ base: props.chartOptions['xScale']['base']}:{ base: 10 }),
+          ...(props.chartOptions['xScale']['min']?{ min: props.chartOptions['xScale']['min']}:{ min: 'auto' }),
+          ...(props.chartOptions['xScale']['max']?{ max: props.chartOptions['xScale']['max']}:{ max: 'auto' })
+        },
+      }:{
+        xScale: { type: 'linear', base: 10, min: 'auto', max: 'auto' },
+      }),
+      ...(props.chartOptions['yScale']?{
+        yScale: {
+          ...(props.chartOptions['yScale']['type']?{ type: props.chartOptions['yScale']['type']}:{ type: 'linear' }),
+          ...(props.chartOptions['yScale']['min']?{ min: props.chartOptions['yScale']['min']}:{ min: 'auto' }),
+          ...(props.chartOptions['yScale']['max']?{ max: props.chartOptions['yScale']['max']}:{ max: 'auto' })
+        },
+      }:{
+        yScale: { type: 'linear', min: 'auto', max: 'auto' },
+      }),
+
+      ...(props.chartOptions['axisBottom']?{
+          axisBottom: {
+              ...(props.chartOptions['axisBottom']['tickSize']?{ tickSize: props.chartOptions['axisBottom']['tickSize']}:{ tickSize: 5 }),
+              ...(props.chartOptions['axisBottom']['tickPadding']?{ tickPadding: props.chartOptions['axisBottom']['tickPadding']}:{ tickPadding: 5 }),
+              ...(props.chartOptions['axisBottom']['tickRotation']?{ tickRotation: props.chartOptions['axisBottom']['tickRotation'] }:{ tickRotation: 45 }),
+              ...(props.chartOptions['axisBottom']['orient']?{ orient: props.chartOptions['axisBottom']['orient'] }:{ orient: 'bottom' }),
+              ...(props.chartOptions['axisBottom']['legend']?{ legend: props.chartOptions['axisBottom']['legend'] }:{ legend: "X-axis" }),
+              ...(props.chartOptions['axisBottom']['legendPosition']?{ legendPosition: props.chartOptions['axisBottom']['legendPosition'] }:{ legendPosition: "middle"}),
+              ...(props.chartOptions['axisBottom']['legendOffset']?{ legendOffset: props.chartOptions['axisBottom']['legendOffset'] }:{ legendOffset: 46}),
+              ...(props.chartOptions['axisBottom']['tickValues']?{ tickValues: props.chartOptions['axisBottom']['tickValues'] }:{ })
+            },
+        }
+        :{
+          axisBottom: { tickSize: 5, tickPadding: 5, tickRotation: 45, orient: 'bottom', legend: 'X-axis', legendPosition: 'middle', legendOffset: 46, },
+        }),
+
+        ...(props.chartOptions['axisLeft']?{
+            axisLeft: {
+                ...(props.chartOptions['axisLeft']['tickSize']?{ tickSize: props.chartOptions['axisLeft']['tickSize']}:{ tickSize: 5 }),
+                ...(props.chartOptions['axisLeft']['tickPadding']?{ tickPadding: props.chartOptions['axisLeft']['tickPadding']}:{ tickPadding: 5 }),
+                ...(props.chartOptions['axisLeft']['tickRotation']?{ tickRotation: props.chartOptions['axisLeft']['tickRotation'] }:{ tickRotation: 0 }),
+                ...(props.chartOptions['axisLeft']['orient']?{ orient: props.chartOptions['axisLeft']['orient'] }:{ orient: 'left' }),
+                ...(props.chartOptions['axisLeft']['legend']?{ legend: props.chartOptions['axisLeft']['legend'] }:{ legend: "Y-axis" }),
+                ...(props.chartOptions['axisLeft']['legendPosition']?{ legendPosition: props.chartOptions['axisLeft']['legendPosition'] }:{ legendPosition: "middle"}),
+                ...(props.chartOptions['axisLeft']['legendOffset']?{ legendOffset: props.chartOptions['axisLeft']['legendOffset'] }:{ legendOffset: -60}),
+                ...(props.chartOptions['axisLeft']['tickValues']?{ tickValues: props.chartOptions['axisLeft']['tickValues'] }:{ })
+              },
+          }
+          :{
+            axisLeft: { tickSize: 5, tickPadding: 5, tickRotation: 0, orient: 'left', legend: 'Y-axis', legendPosition: 'middle', legendOffset: -60 },
+          }),
+
+
+      //Always finish live chart with these
+      animate: true,
+      motionStiffness: 90,
+      motionDamping: 15
   };
 
   // Function to export the plot as svg
