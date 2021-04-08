@@ -10,7 +10,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Radio from "@material-ui/core/Radio";
 
-import LinePlot from "../Charts/LinePlot3";
+import LinePlot from "../Charts/LinePlot_stencil";
 import BarChart from "../Charts/BarChart_stencil";
 import ScatterPlot from "../Charts/ScatterPlot_stencil";
 
@@ -84,10 +84,10 @@ class ImageArray extends React.Component {
           //console.log(item);
           //console.log(item.preLoadData);
           return (sizes===undefined)?(<Grid item key={stepId}>
-            <LinePlot chartData={item.preLoadData?item.preLoadData.compositePlot: {}} width={600} height={500} />
+            <LinePlot chartData={item.preLoadData?item.preLoadData.chartData: {}} chartOptions={item.preLoadData?item.preLoadData.chartOptions: {}} width={600} height={500} />
             </Grid>):(
             <Grid item key={stepId}>
-            <LinePlot chartData={item.preLoadData?item.preLoadData.compositePlot: {}} width={sizes[0]} height={sizes[1]} />
+            <LinePlot chartData={item.preLoadData?item.preLoadData.chartData: {}} chartOptions={item.preLoadData?item.preLoadData.chartOptions: {}} width={sizes[0]} height={sizes[1]} />
             </Grid>
           );
         case "barchart":
@@ -104,12 +104,13 @@ class ImageArray extends React.Component {
         case "scatterplot":
           //console.log(item);
           //console.log(item.preLoadData);
+          //console.log(item.preLoadData.chartOptions);
           return (sizes===undefined)?(
             <Grid item key={stepId}>
-            <ScatterPlot chartData={item.preLoadData?item.preLoadData: {}} width={600} height={500} />
+            <ScatterPlot chartData={item.preLoadData?item.preLoadData.chartData: {}} chartOptions={item.preLoadData?item.preLoadData.chartOptions: {}} width={600} height={500} />
             </Grid>):(
             <Grid item key={stepId}>
-            <ScatterPlot chartData={item.preLoadData?item.preLoadData: {}} width={sizes[0]} height={sizes[1]} />
+            <ScatterPlot chartData={item.preLoadData?item.preLoadData.chartData: {}} chartOptions={item.preLoadData?item.preLoadData.chartOptions: {}} width={sizes[0]} height={sizes[1]} />
             </Grid>
           );
         default:

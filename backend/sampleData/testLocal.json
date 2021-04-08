@@ -42,7 +42,7 @@
 		"dataType": "linePlot",
 		"layoutId": "Motif_Analysis",
 		"tabId": "Motif1",
-		"URL": "http://localhost:8081/localdata/composite.json",
+		"URL": "http://localhost:8081/localdata/lineplot.json",
 		"stepId": "0"
 	},
 	{
