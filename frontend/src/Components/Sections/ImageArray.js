@@ -2,17 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Radio from "@material-ui/core/Radio";
+
+import { CardContent, Typography, Grid, Paper, Tabs, Tab, Radio} from "@material-ui/core";
 
 import LinePlot from "../Charts/LinePlot_stencil";
 import BarChart from "../Charts/BarChart_stencil";
 import ScatterPlot from "../Charts/ScatterPlot_stencil";
+import BasicTable from "../SubComponents/BasicTable_stencil";
 
 const styles = {
   card: {
@@ -72,14 +68,24 @@ class ImageArray extends React.Component {
         case "jpg":
         case "png":
         case "svg":
-        return (sizes===undefined)?(
-        <Grid item key={stepId}>
-          <img src={item.URL} alt={item.dataLabel} title={item.dataLabel}  />
-          </Grid>):(
-        <Grid item key={stepId}>
-          <img src={item.URL} alt={item.dataLabel} title={item.dataLabel} width={sizes[0]} height={sizes[1]} />
-          </Grid>)
-        ;
+          return (sizes===undefined)?(
+            <Grid item key={stepId}>
+              <img src={item.URL} alt={item.dataLabel} title={item.dataLabel}  />
+              </Grid>):(
+            <Grid item key={stepId}>
+              <img src={item.URL} alt={item.dataLabel} title={item.dataLabel} width={sizes[0]} height={sizes[1]} />
+              </Grid>)
+          ;
+        case "basictable":
+          //console.log(item);
+          return (sizes===undefined)?(
+            <Grid item key={stepId}>
+              <BasicTable tableData={item.tableData} width={500} height={800}/>
+              </Grid>):(
+            <Grid item key={stepId}>
+              <BasicTable tableData={item.tableData} width={sizes[0]} height={sizes[1]} />
+              </Grid>)
+          ;
         case "lineplot":
           //console.log(item);
           //console.log(item.preLoadData);
