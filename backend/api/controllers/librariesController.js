@@ -158,7 +158,7 @@ exports.queryLibraryDataById = (req, res, next) => {
       if ((doc!==null) && (doc.libraryData!==undefined)){
               doc.libraryData.forEach(item => {
                 //console.log(item);
-                if(item.get("dataType")==="linePlot" || item.get("dataType")==="barchart" || item.get("dataType")==="scatterplot") {
+                if(item.get("dataType")==="linePlot" || item.get("dataType")==="barchart" || item.get("dataType")==="scatterplot" || item.get("dataType")==="heatmap") {
                     var originalURL = item.get("URL");
                     //console.log(originalURL);
                     getList.push(axios.get(originalURL));

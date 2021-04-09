@@ -6,6 +6,8 @@
     "@material-ui/data-grid": "^0.1.67",
     "@material-ui/icons": "^4.11.2",
     "@nivo/bar": "^0.66.0",
+    "@nivo/core": "^0.66.0",
+    "@nivo/heatmap": "^0.66.0",
     "@nivo/line": "^0.66.0",
     "@nivo/scatterplot": "^0.66.0",
     "axios": "^0.21.1",
@@ -15,7 +17,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^4.0.3",
     "react-select": "^3.0.8",
-    "source-map-explorer": "^2.1.0"
+    "source-map-explorer": "^2.1.0",
+    "styled-components": "^5.2.3"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
