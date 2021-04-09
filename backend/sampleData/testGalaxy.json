@@ -6,7 +6,7 @@
 	"libraryType": "ChIP-exo",
 	"sampleId": "Reb1",
 	"run": 396,
-	"libraryId": "compositeTest2",
+	"libraryId": "newGalaxy-SVG",
 	"statsToolId": "script_manager_4color_stencil",
 	"toolCategory": "Unknown",
 	"toolStderr": "",
@@ -17,11 +17,19 @@
 	"statistics": [{}],
 	"libraryData": [{
     "id": "0c5d7fa180a56458",
-    "dataType": "linePlot",
-    "layoutId": "Motif_Analysis",
-    "tabId": "Motif1",
-    "URL": "http://128.84.9.200:8080/datasets/0c5d7fa180a56458/display?preview=False",
+    "dataType": "svg",
+    "layoutId": "NonTranscribed_Features",
+    "tabId": "Motif2",
+    "URL": "https://galaxy.egc.cac.cornell.edu/datasets/a631efccc522573a/display?preview=False",
     "stepId": "0"
-  }],
+  },
+	{
+		"id": "0c5d7fa180a56458",
+		"dataType": "png",
+		"layoutId": "NonTranscribed_Features",
+		"tabId": "Motif2",
+		"URL": "https://galaxy.egc.cac.cornell.edu/datasets/5152276ee97f07c8/display/?preview=False",
+		"stepId": "1"
+	}],
 	"history_url": "http://128.84.9.200:8080/histories/view?id=6fb17d0cc6e8fae5"
 }
