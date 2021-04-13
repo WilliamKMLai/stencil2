@@ -2,7 +2,7 @@ import React from "react";
 import { Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
-
+import Button from '@material-ui/core/Button';
 import { Typography, Paper } from "@material-ui/core";
 import { Table, TableBody, TableCell, TableContainer,  TableHead, TableRow } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
@@ -43,27 +43,49 @@ const styles = theme => ({
 class ProjectPage extends React.Component {
 
   static contextType = DataContext;
-  state = {"users":[]};
+  state = {};
   componentDidMount() {
     axios
-      .get(Config.settings.apiURL + "/libraries/alluid", {withCredentials: true})
+      .get(Config.settings.apiURL + "/libraries/allprojs", {withCredentials: true})
       .then(res => {
-        this.setState({"users":res.data.users});
+        let hh = {};
+        res.data.map(item=>{
+          hh[item.projectId] = item.public;
+          this.setState({[item.projectId]:item.public});
+
+        }
+        )
+        
       })
       .catch(err => {
         console.log(err);
       });
   }
+  
+
 
   render() {
     const { classes } = this.props;
 
     // Setting the title of the browser tab
     document.title = "Project Information";
+    let handleCheckboxChange = event =>{
+      let target = event.target;
+      let value =  target.checked;
+      let name = target.name;
+      console.log("show ssss");
+      console.log(String(value));
+      this.state[name]?this.setState({[name]: false}):this.setState({[name]: true})
+      
+    }
 
     return(
       <div className={classes.root}>
         <div className={classes.content}>
+        <form
+                    id="main-login"
+                    action={Config.settings.apiURL + "/updateProjects"}
+                    method="post">
         <Paper square>
           <div className={classes.jumbotron}>
             <div className={classes.container}>
@@ -75,30 +97,34 @@ class ProjectPage extends React.Component {
                 <TableHead>
                   <TableRow>
                     <TableCell align="left">Project ID</TableCell>
-                    <TableCell align="left">Users</TableCell>
-                    <TableCell align="left">Experiment IDs</TableCell>
+                    <TableCell align="left">Public</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {this.state.users.map((user) => (
-                    <TableRow key={user.userName}>
+                  {Object.keys(this.state).map((proj) => (
+                    <TableRow key={proj}>
                       <TableCell component="th" scope="row">
-                        {user.projects}
+                        {proj}
                       </TableCell>
                       <TableCell component="th" scope="row">
-                        <Link to={"/edituser/"+ user.userName}>{user.userName}</Link>
-                      </TableCell>
-                      <TableCell component="th" scope="row">
-                        {user.createTimestamp.replace(/T.+/, '')}
+                        <input name={proj}
+                        id={proj}
+                        type="checkbox"
+                        checked={this.state[proj]}
+                        onChange={handleCheckboxChange}
+                         />
+
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
+              <Button type="submit" color="primary" fullWidth variant="contained">Submit</Button>
             </TableContainer>
             </div>
           </div>
         </Paper>
+        </form>
         </div>
       </div>
 

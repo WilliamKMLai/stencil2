@@ -104,7 +104,7 @@ class AdminPage extends React.Component {
                         {user.role}
                       </TableCell>
                       <TableCell component="th" scope="row">
-                        {user.projects}
+                        {user.projects.join(",")}
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {user.createTimestamp.replace(/T.+/, '')}

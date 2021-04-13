@@ -70,13 +70,17 @@ class NavBar extends React.Component {
                   </IconButton>
                 </Tooltip>
               </Link>
-              <Link to="/project">
-                <Tooltip title="Project" aria-label="project">
-                  <IconButton color="primary">
-                    <AccountTreeIcon />
-                  </IconButton>
-                </Tooltip>
-              </Link>
+              {
+                (this.props.role==="admin")?(
+                  <Link to="/project">
+                  <Tooltip title="Project" aria-label="project">
+                    <IconButton color="primary">
+                      <AccountTreeIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Link>
+                ):("")
+              }
               <Link to="/account">
                 <Tooltip title="Account" aria-label="account">
                   <IconButton color="primary">

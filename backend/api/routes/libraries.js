@@ -10,10 +10,12 @@ router.get("/", librariesController.getAllLibraryMetaInfo);
 router.get("/dbid/:dbid", librariesController.queryLibraryDataById);
 router.get("/uid/:uid", librariesController.queryUserId);
 router.get("/alluid", librariesController.allUsers);
+router.get("/allprojs", librariesController.allProjects);
 
 // POST
 // create one new library
 router.post("/", librariesController.createNewLibrary);
+
 
 
 
