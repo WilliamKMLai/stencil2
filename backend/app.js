@@ -27,6 +27,7 @@ const mongoose = require("mongoose");
 // user management
 const bcrypt = require("bcrypt");
 const usermodel = require("./api/models/userModel");
+const projmodel = require("./api/models/projectModel");
 
 const {createProxyMiddleware} = require('http-proxy-middleware');
 app.use(cors({
@@ -203,7 +204,41 @@ app.post('/register', async function(req, res) {
 	}
 });
 
+app.post("/updateProjects", async function(req, res){
+  if (req.session.role==="admin"){
+    let frontCaller = process.env.FRONT_API;
+    console.log(req.body);
+    projmodel.find().exec()
+    .then (projs => {
+      projs.map(proj =>{
+        if (proj.projectId in req.body){
+          console.log("update to yes");
+          proj.updateOne({public:true}).exec()
+        }
+        else
+        {
+          console.log("update no");
+          proj.updateOne({public:false}).exec()
+        }
+      }
+       
+      )
+  
+    })
+  
+  
+    return res.redirect(frontCaller + "/project");
+  }
+  else
+  {
+    res.send('no right to edit!');
+		res.end();
+  }
 
+
+}
+
+)
 app.post('/account', async function(req, res) {
   let frontCaller = process.env.FRONT_API;
 
@@ -270,7 +305,8 @@ app.post('/edituser', async function(req, res) {
       await doc.updateOne(update);
     }
     if (newprojects) {
-      const update = { projects: newprojects };
+      let parray = newprojects.split(/[ ,;\t]+/)
+      const update = { projects: parray };
       await doc.updateOne(update);
     }
     return res.redirect(frontCaller + "/admin");

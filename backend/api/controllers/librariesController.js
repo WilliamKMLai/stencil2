@@ -7,6 +7,7 @@ require("dotenv").config();
 // requiring the library model
 const myLib = require("../models/libraryModel");
 const myUser = require("../models/userModel");
+const myProj = require("../models/projectModel");
 
 //exports.use(session({secret:process.env.SESSION_ENCRYPTION, cookie: { maxAge: 24 * 60 * 60 * 1000 }, saveUninitialized:false}));
 
@@ -48,6 +49,35 @@ exports.queryUserId = (req, res, next) => {
   }
 }
 
+
+exports.allProjects =  async  (req, res, next) => {
+
+    var pids = await myLib.distinct("projectId");
+    console.log(pids);
+    for (var projId of pids){
+      let eee = await myProj.exists({'projectId': projId});
+      if (!eee) {
+        let newProj = new myProj(
+          {
+            _id: new mongoose.Types.ObjectId(),
+            projectId: projId,
+            public: false
+          }
+        )
+         await newProj.save();
+      }
+
+    }
+
+    let projs =  await myProj.find();
+
+    res.status(200).json(projs);
+ 
+
+}
+
+
+
 exports.allUsers = (req, res, next) => {
   if (req.session.role==="admin"){
     myUser.find()
@@ -88,11 +118,32 @@ exports.allUsers = (req, res, next) => {
   }
 }
 
-exports.getAllLibraryMetaInfo = (req, res, next) => {
+exports.getAllLibraryMetaInfo = async (req, res, next) => {
   // console.log("get all libraries");
   // console.log( req.session.username);
+  let uid = req.session.username;
+  let role = req.session.role;
+  //let projectRestriction = projPermission(uid, role);
+  if (role==="guest"){
+    var pids = await myProj.distinct("projectId", {public:true});
+    projectRestriction = {projectId:{"$in": pids}}
+    console.log(projectRestriction);
+  }
+
+  if (role==="regular"){
+    var pids1 = await myProj.distinct("projectId", {public:true});
+    var pids2 = await myUser.findOne({"userName":uid}).select("projects -_id");
+    pids2 = pids2["projects"];
+    var combined = [...new Set ([...pids1, ...pids2])]
+    console.log("permission merged")
+    console.log(combined);
+    projectRestriction = {projectId:{"$in": combined}}
+    //console.log(projectRestriction);
+  }
+
+
   if (req.session.loggedin){
-    myLib.find()
+    myLib.find(projectRestriction)
     .exec()
     .then(docs => {
       returnMessage = "";
@@ -137,7 +188,29 @@ exports.getAllLibraryMetaInfo = (req, res, next) => {
 
 };
 
-exports.queryLibraryDataById = (req, res, next) => {
+exports.queryLibraryDataById = async (req, res, next) => {
+    // console.log("get all libraries");
+  // console.log( req.session.username);
+  let uid = req.session.username;
+  let role = req.session.role;
+  //let projectRestriction = projPermission(uid, role);
+  if (role==="guest"){
+    var pids = await myProj.distinct("projectId", {public:true});
+    projectRestriction = {projectId:{"$in": pids}}
+    console.log(projectRestriction);
+  }
+
+  if (role==="regular"){
+    var pids1 = await myProj.distinct("projectId", {public:true});
+    var pids2 = await myUser.findOne({"userName":uid}).select("projects -_id");
+    pids2 = pids2["projects"];
+    var combined = [...new Set ([...pids1, ...pids2])]
+    console.log("permission merged")
+    console.log(combined);
+    projectRestriction = {projectId:{"$in": combined}}
+    //console.log(projectRestriction);
+  }
+
   const responseMsg = {
     count:0,
     message: "",
@@ -145,7 +218,10 @@ exports.queryLibraryDataById = (req, res, next) => {
   };
   let queryId = req.params.dbid;
   //console.log("query the db", queryId);
-  myLib.findOne({'_id': queryId})
+
+  let idFilter = {'_id': queryId}
+  let combinedFilter = {...idFilter, ...projectRestriction}
+  myLib.findOne(combinedFilter)
     .exec()
     .then(doc => {
 
