@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// define the schema for a sample, each sample has below properties.
+// define the schema for a user, each user has below properties.
 const userSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   userName: { type: String },
