@@ -1,5 +1,4 @@
 import React from "react";
-import { Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
@@ -55,13 +54,13 @@ class ProjectPage extends React.Component {
 
         }
         )
-        
+
       })
       .catch(err => {
         console.log(err);
       });
   }
-  
+
 
 
   render() {
@@ -76,7 +75,7 @@ class ProjectPage extends React.Component {
       console.log("show ssss");
       console.log(String(value));
       this.state[name]?this.setState({[name]: false}):this.setState({[name]: true})
-      
+
     }
 
     return(
