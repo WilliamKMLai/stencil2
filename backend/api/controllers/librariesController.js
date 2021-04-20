@@ -123,7 +123,10 @@ exports.getAllLibraryMetaInfo = async (req, res, next) => {
   // console.log( req.session.username);
   let uid = req.session.username;
   let role = req.session.role;
-  //let projectRestriction = projPermission(uid, role);
+  let projectRestriction = null;
+
+  console.log("check restriction");
+
   if (role==="guest"){
     var pids = await myProj.distinct("projectId", {public:true});
     projectRestriction = {projectId:{"$in": pids}}
@@ -131,6 +134,7 @@ exports.getAllLibraryMetaInfo = async (req, res, next) => {
   }
 
   if (role==="regular"){
+    console.log("regular user restriction");
     var pids1 = await myProj.distinct("projectId", {public:true});
     var pids2 = await myUser.findOne({"userName":uid}).select("projects -_id");
     pids2 = pids2["projects"];
@@ -193,7 +197,7 @@ exports.queryLibraryDataById = async (req, res, next) => {
   // console.log( req.session.username);
   let uid = req.session.username;
   let role = req.session.role;
-  //let projectRestriction = projPermission(uid, role);
+  let projectRestriction = {};
   if (role==="guest"){
     var pids = await myProj.distinct("projectId", {public:true});
     projectRestriction = {projectId:{"$in": pids}}
