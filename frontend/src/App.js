@@ -9,7 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 // Sub Components
 import Navbar from "./Components/Navbar";
-import LibrariesPage from "./Components/LibrariesPage";
+import HomePage from "./Components/HomePage";
 import LoginPage from "./Components/LoginPage";
 import AdminPage from "./Components/AdminPage";
 import AccountPage from "./Components/AccountPage";
@@ -215,9 +215,9 @@ class App extends Component {
                   <Route exact path="/admin" component={AdminPage} />
                   <Route exact path="/account" component={AccountPage} />
                   <Route exact path="/edituser/:uid" component={EditUserPage} />
-                  <Route exact path="/project/:proj_id" component={LibrariesPage} />
+                  <Route exact path="/project/:proj_id" component={HomePage} />
                   <Route exact path="/getLib/:library_id" component={Library} />
-                  <Route exact path="/" component={LibrariesPage} />
+                  <Route exact path="/" component={HomePage} />
                 </Switch>
               </DataProvider>
             ) : (

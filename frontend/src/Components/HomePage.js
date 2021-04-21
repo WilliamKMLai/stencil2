@@ -60,7 +60,7 @@ const styles = theme => ({
   }
 });
 
-class SimpleLibrariesPage extends React.Component {
+class HomePage extends React.Component {
   // using the context
   static contextType = DataContext;
 
@@ -208,8 +208,8 @@ class SimpleLibrariesPage extends React.Component {
   }
 }
 
-SimpleLibrariesPage.propTypes = {
+HomePage.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SimpleLibrariesPage);
+export default withStyles(styles)(HomePage);
