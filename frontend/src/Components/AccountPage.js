@@ -137,7 +137,7 @@ class AccountPage extends React.Component {
                     type="text"
                     name="email"
                     placeholder={this.state.userEmail}
-                    size="small" variant="outlined" size="25"/>
+                    variant="outlined" size="25"/>
                   </Grid>
               </Grid>
               <Grid container spacing={2} justify="center" alignItems="center" direction="row">
@@ -149,7 +149,7 @@ class AccountPage extends React.Component {
                     type="password"
                     name="password"
                     placeholder="Leave blank if unchanged"
-                    size="small" variant="outlined" size="25"/>
+                    variant="outlined" size="25"/>
                   </Grid>
               </Grid>
               <Grid container spacing={2} justify="center" alignItems="center" direction="row">
@@ -161,7 +161,7 @@ class AccountPage extends React.Component {
                     type="password"
                     name="password2"
                     placeholder="Leave blank if unchanged"
-                    size="small" variant="outlined" size="25"/>
+                    variant="outlined" size="25"/>
                   </Grid>
               </Grid>
               <Grid container spacing={2} justify="center" alignItems="center" direction="row">
