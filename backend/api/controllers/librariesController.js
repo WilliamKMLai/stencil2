@@ -49,7 +49,6 @@ exports.queryUserId = (req, res, next) => {
   }
 }
 
-
 exports.allProjects =  async  (req, res, next) => {
 
     var pids = await myLib.distinct("projectId");
@@ -72,11 +71,9 @@ exports.allProjects =  async  (req, res, next) => {
     let projs =  await myProj.find();
 
     res.status(200).json(projs);
- 
+
 
 }
-
-
 
 exports.allUsers = (req, res, next) => {
   if (req.session.role==="admin"){
@@ -117,7 +114,6 @@ exports.allUsers = (req, res, next) => {
     res.status(200).json(response);
   }
 }
-
 
 exports.getBatchLibraryMetaInfo = async (req, res, next) => {
   // console.log("get all libraries");
@@ -169,8 +165,6 @@ exports.getBatchLibraryMetaInfo = async (req, res, next) => {
   }
 
 };
-
-
 
 exports.getAllLibraryMetaInfo = async (req, res, next) => {
   // console.log("get all libraries");
@@ -292,7 +286,7 @@ exports.queryLibraryDataById = async (req, res, next) => {
       if ((doc!==null) && (doc.libraryData!==undefined)){
               doc.libraryData.forEach(item => {
                 //console.log(item);
-                if(item.get("dataType")==="linePlot" || item.get("dataType")==="barchart" || item.get("dataType")==="scatterplot" || item.get("dataType")==="heatmap") {
+                if(item.get("dataType")==="lineplot" || item.get("dataType")==="barchart" || item.get("dataType")==="scatterplot" || item.get("dataType")==="heatmap") {
                     var originalURL = item.get("URL");
                     //console.log(originalURL);
                     getList.push(axios.get(originalURL));
@@ -572,7 +566,6 @@ exports.createNewLibrary = (req, res, next) => {
   });
 
 };
-
 
 exports.deleteLibraryById = (req, res, next) => {
   let token = req.params.token;
