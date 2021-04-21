@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 import { CardContent, Typography, Grid, Paper, Tabs, Tab, Radio} from "@material-ui/core";
 
-import BasicTable from "../SubComponents/BasicTable_stencil";
+import BasicTable from "../Tables/BasicTable_stencil";
 import LinePlot from "../Charts/LinePlot_stencil";
 import BarChart from "../Charts/BarChart_stencil";
 import ScatterPlot from "../Charts/ScatterPlot_stencil";
@@ -123,7 +123,7 @@ class ImageArray extends React.Component {
         case "heatmap":
           //console.log(item);
           //console.log(item.preLoadData);
-          console.log(item.preLoadData.chartOptions);
+          //console.log(item.preLoadData.chartOptions);
           return (sizes===undefined)?(
             <Grid item key={stepId}>
             <HeatMap chartData={item.preLoadData?item.preLoadData.chartData: {}} chartOptions={item.preLoadData?item.preLoadData.chartOptions: {}} width={600} height={500} />
