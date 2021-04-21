@@ -62,8 +62,7 @@ class AccountPage extends React.Component {
       .get(Config.settings.apiURL + "/libraries/uid/" + this.context.uid, {withCredentials: true})
       .then(res => {
         const targets = res.data;
-        console.log("retrieved");
-        console.log(targets.user);
+        //console.log(targets.user);
         this.setState(targets.user);
       })
       .catch(err => {
@@ -113,51 +112,59 @@ class AccountPage extends React.Component {
             </Typography>):("")
             }
                <input type='hidden' name="uid" value={this.state.userName} />
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item xs={3}>
-                    <Typography variant="body1" gutterBottom>User</Typography>
+                    <Typography variant="h6" gutterBottom>User</Typography>
                   </Grid>
                   <Grid item xs={2}>
                     <Typography variant="body2" gutterBottom>{this.state.userName}</Typography>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
+                  <Grid item xs={3}>
+                    <Typography variant="h6" gutterBottom>Role</Typography>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Typography variant="body2" gutterBottom>{this.state.role}</Typography>
+                  </Grid>
+              </Grid>
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Email</Typography>
+                    <Typography variant="h6" gutterBottom>Email</Typography>
                   </Grid>
                   <Grid item  xs={2}>
                   <input
                     type="text"
                     name="email"
                     placeholder={this.state.userEmail}
-                    size="small" variant="outlined" />
+                    variant="outlined" size="25"/>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Password</Typography>
+                    <Typography variant="h6" gutterBottom>Password</Typography>
                   </Grid>
                   <Grid item  xs={2}>
                   <input
                     type="password"
                     name="password"
-                    placeholder="Leave blank if not changed"
-                    size="small" variant="outlined" />
+                    placeholder="Leave blank if unchanged"
+                    variant="outlined" size="25"/>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Confirm Password</Typography>
+                    <Typography variant="h6" gutterBottom>Confirm Password</Typography>
                   </Grid>
                   <Grid item  xs={2}>
                   <input
                     type="password"
                     name="password2"
-                    placeholder="Leave blank if not changed"
-                    size="small" variant="outlined" />
+                    placeholder="Leave blank if unchanged"
+                    variant="outlined" size="25"/>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} direction="row" alignItems="center">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
                   <br />
                   <Button type="submit" color="primary" fullWidth variant="contained">Edit User</Button>

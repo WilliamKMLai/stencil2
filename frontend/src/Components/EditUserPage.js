@@ -122,26 +122,17 @@ class EditUserPage extends React.Component {
             </Typography>):("")
             }
                <input type='hidden' name="uid" value={this.state.userName} />
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item xs={3}>
-                    <Typography variant="body1" gutterBottom>User</Typography>
+                    <Typography variant="h6" gutterBottom>User</Typography>
                   </Grid>
                   <Grid item xs={3}>
                     <Typography variant="body2" gutterBottom>{this.state.userName}</Typography>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Email</Typography>
-                  </Grid>
-                  <Grid item  xs={3}>
-                  <input type="text" name="email" placeholder={this.state.userEmail}
-                    size="small" variant="outlined" />
-                  </Grid>
-              </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
-                  <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Role</Typography>
+                    <Typography variant="h6" gutterBottom>Role</Typography>
                   </Grid>
                   <Grid item  xs={3}>
                     <Select
@@ -157,9 +148,9 @@ class EditUserPage extends React.Component {
                     </Select>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Status</Typography>
+                    <Typography variant="h6" gutterBottom>Status</Typography>
                   </Grid>
                   <Grid item  xs={3}>
                     <Select
@@ -174,33 +165,41 @@ class EditUserPage extends React.Component {
                     </Select>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Projects</Typography>
+                    <Typography variant="h6" gutterBottom>Projects</Typography>
                   </Grid>
                   <Grid item  xs={3}>
                   <input
                     type="text"
                     name="projects"
                     value={this.state.projects}
-                    size="small" variant="outlined"
+                    size="25" variant="outlined"
                     onChange={this.handleChangeProjects}/>
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Password</Typography>
+                    <Typography variant="h6" gutterBottom>Email</Typography>
                   </Grid>
                   <Grid item  xs={3}>
-                  <input type="password" name="password" placeholder="Leave blank if not changed" size="small" variant="outlined" />
+                  <input type="text" name="email" placeholder={this.state.userEmail} size="25" variant="outlined" />
                   </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" direction="row">
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
                   <Grid item  xs={3}>
-                    <Typography variant="body1" gutterBottom>Confirm Password</Typography>
+                    <Typography variant="h6" gutterBottom>Password</Typography>
                   </Grid>
                   <Grid item  xs={3}>
-                  <input type="password" name="password2" placeholder="Leave blank if not changed" size="small" variant="outlined" />
+                  <input type="password" name="password" placeholder="Leave blank if unchanged" size="25" variant="outlined" />
+                  </Grid>
+              </Grid>
+              <Grid container spacing={2} justify="center" alignItems="center" direction="row">
+                  <Grid item  xs={3}>
+                    <Typography variant="h6" gutterBottom>Confirm Password</Typography>
+                  </Grid>
+                  <Grid item  xs={3}>
+                  <input type="password" name="password2" placeholder="Leave blank if unchanged" size="25" variant="outlined" />
                   </Grid>
               </Grid>
               <Grid container spacing={2} direction="row" justify="center" alignItems="center">
