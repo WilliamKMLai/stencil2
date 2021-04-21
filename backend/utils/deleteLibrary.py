@@ -14,6 +14,8 @@ if __name__ == '__main__':
     projectId = sys.argv[1]
     libraryId = sys.argv[2]
 
-    deleteURL = URL + projectId + "/" + libraryId
+    token = "ssspwd"
+
+    deleteURL = f"{URL}/{token}/{projectId}/{libraryId}"
     response = requests.delete(deleteURL)
     pprint.pprint(response.json())

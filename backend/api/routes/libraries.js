@@ -7,6 +7,7 @@ const librariesController = require("../controllers/librariesController");
 // GET
 // retrieve all libraries
 router.get("/", librariesController.getAllLibraryMetaInfo);
+router.get("/all/:token", librariesController.getBatchLibraryMetaInfo);
 router.get("/dbid/:dbid", librariesController.queryLibraryDataById);
 router.get("/uid/:uid", librariesController.queryUserId);
 router.get("/alluid", librariesController.allUsers);
@@ -16,17 +17,14 @@ router.get("/allprojs", librariesController.allProjects);
 // create one new library
 router.post("/", librariesController.createNewLibrary);
 
-// PATCH
-// update one or more sample information
-router.patch("/dbid/:dbid", librariesController.patchLibraryById);
 
 // DELETE
 // delete a libary by database id
-router.delete("/dbid/:dbid", librariesController.deleteLibraryById);
+router.delete("/dbid/:token/:dbid", librariesController.deleteLibraryById);
 
 // DELETE
 // delete a libary by user library id and project ID
-router.delete("/libid/:projid/:libid", librariesController.deleteLibraryByLibId);
+router.delete("/libid/:token/:projid/:libid", librariesController.deleteLibraryByLibId);
 
 
 // export the router

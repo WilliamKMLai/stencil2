@@ -118,6 +118,60 @@ exports.allUsers = (req, res, next) => {
   }
 }
 
+
+exports.getBatchLibraryMetaInfo = async (req, res, next) => {
+  // console.log("get all libraries");
+  // console.log( req.session.username);
+  let token = req.params.token;
+  if (token === process.env.MASTER_PWD){
+    myLib.find()
+    .exec()
+    .then(docs => {
+      returnMessage = "";
+      const response = {
+        count: docs.length,
+        message: returnMessage,
+        uid: req.session.username,
+        role: req.session.role,
+        libraries: docs.map(doc => {
+          return {
+            dbId: doc._id,
+            libraryId: doc.libraryId,
+            sampleId: doc.sampleId,
+            projectId: doc.projectId,
+            groupTag: doc.groupTag,
+            libraryType: doc.libraryType,
+            libraryData: doc.libraryData,
+            createdBy: doc.createdBy,
+            createTimestamp : doc.createTimestamp,
+            updatedBy : doc.updatedBy,
+            updateTimestamp : doc.updateTimestamp,
+            status: doc.status
+          };
+        })
+      };
+      res.status(200).json(response);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+
+  }
+  else
+  {
+    const response = {
+      count: 0,
+      message: "denied",
+      libraries: {}
+    };
+    res.status(200).json(response);
+  }
+
+};
+
+
+
 exports.getAllLibraryMetaInfo = async (req, res, next) => {
   // console.log("get all libraries");
   // console.log( req.session.username);
@@ -519,33 +573,13 @@ exports.createNewLibrary = (req, res, next) => {
 
 };
 
-exports.patchLibraryById = (req, res, next) => {
-  let queryId = req.params.dbid;
-  const updateOps = {};
-
-  // change only the key value pairs that need to be changed
-  for (let ops of req.body) {
-    updateOps[ops.propName] = ops.value;
-  }
-
-  // updating the data
-  myLib.updateOne({ _id: queryId }, { $set: updateOps })
-    .exec()
-    .then(result => {
-      console.log(result);
-      res.status(200).json({
-        message: "Library Updated",
-        sample: result
-      });
-    })
-    .catch(err => {
-      error: err;
-    });
-};
 
 exports.deleteLibraryById = (req, res, next) => {
+  let token = req.params.token;
   let queryId = req.params.dbid;
-  myLib.deleteOne({ _id: queryId })
+
+  if (token === process.env.MASTER_PWD){
+    myLib.deleteOne({ _id: queryId })
     .exec()
     .then(result => {
       console.log(result);
@@ -557,12 +591,20 @@ exports.deleteLibraryById = (req, res, next) => {
       console.log(err);
       res.status(500).json({ error: err });
     });
+  }
+  else{
+    res.status(500).json({ error: "no permission to delete" });
+  }
+
 };
 
 exports.deleteLibraryByLibId = (req, res, next) => {
   let libId = req.params.libid;
   let projId = req.params.projid;
-  myLib.deleteOne({ libraryId:libId, projectId:projId})
+  let token = req.params.token;
+
+  if (token === process.env.MASTER_PWD){
+    myLib.deleteOne({ libraryId:libId, projectId:projId})
     .exec()
     .then(result => {
       console.log(result);
@@ -574,4 +616,9 @@ exports.deleteLibraryByLibId = (req, res, next) => {
       console.log(err);
       res.status(500).json({ error: err });
     });
+  }
+  else{
+    res.status(500).json({ error: "no permission to delete" });
+  }
+
 };
