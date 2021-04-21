@@ -518,3 +518,60 @@ exports.createNewLibrary = (req, res, next) => {
   });
 
 };
+
+exports.patchLibraryById = (req, res, next) => {
+  let queryId = req.params.dbid;
+  const updateOps = {};
+
+  // change only the key value pairs that need to be changed
+  for (let ops of req.body) {
+    updateOps[ops.propName] = ops.value;
+  }
+
+  // updating the data
+  myLib.updateOne({ _id: queryId }, { $set: updateOps })
+    .exec()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: "Library Updated",
+        sample: result
+      });
+    })
+    .catch(err => {
+      error: err;
+    });
+};
+
+exports.deleteLibraryById = (req, res, next) => {
+  let queryId = req.params.dbid;
+  myLib.deleteOne({ _id: queryId })
+    .exec()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: "Library Deleted"
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+};
+
+exports.deleteLibraryByLibId = (req, res, next) => {
+  let libId = req.params.libid;
+  let projId = req.params.projid;
+  myLib.deleteOne({ libraryId:libId, projectId:projId})
+    .exec()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: "Library Deleted"
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+};

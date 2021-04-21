@@ -16,7 +16,17 @@ router.get("/allprojs", librariesController.allProjects);
 // create one new library
 router.post("/", librariesController.createNewLibrary);
 
+// PATCH
+// update one or more sample information
+router.patch("/dbid/:dbid", librariesController.patchLibraryById);
 
+// DELETE
+// delete a libary by database id
+router.delete("/dbid/:dbid", librariesController.deleteLibraryById);
+
+// DELETE
+// delete a libary by user library id and project ID
+router.delete("/libid/:projid/:libid", librariesController.deleteLibraryByLibId);
 
 
 // export the router
