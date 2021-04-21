@@ -16,7 +16,6 @@ import AccountPage from "./Components/AccountPage";
 import ProjectPage from "./Components/ProjectPage";
 import EditUserPage from "./Components/EditUserPage";
 import Library from "./Components/showLibrary"
-import Help from "./Components/Help";
 // React contextAPI for common app data
 import { DataProvider } from "./Components/DataContext";
 import Config from "./Config";
@@ -228,7 +227,6 @@ class App extends Component {
                     path="/getLib/:library_id"
                     component={Library}
                   />
-                  <Route exact path="/help/" component={Help} />
                   <Route exact path="/" component={LibrariesPage} />
                 </Switch>
               </DataProvider>
