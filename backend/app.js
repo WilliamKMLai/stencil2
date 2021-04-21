@@ -114,8 +114,8 @@ app.post('/login', async function(req, res) {
     console.log(token);
         // decrypt token to get user id, and check whether use exist
         var crypto = require('crypto');
-        var key = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
-        var iv = 'AAAAAAAAAAAAAAAA';
+        var key = process.env.SSO_TOKEN_KEY ;
+        var iv = process.env.SSO_TOKEN_IV ;
         var decipher = crypto.createDecipheriv('aes-256-cbc', key, iv);
         decipher.update(token, 'base64', 'binary');
         username = decipher.final('binary');
