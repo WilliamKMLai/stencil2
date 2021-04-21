@@ -62,8 +62,7 @@ class AccountPage extends React.Component {
       .get(Config.settings.apiURL + "/libraries/uid/" + this.context.uid, {withCredentials: true})
       .then(res => {
         const targets = res.data;
-        console.log("retrieved");
-        console.log(targets.user);
+        //console.log(targets.user);
         this.setState(targets.user);
       })
       .catch(err => {

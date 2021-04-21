@@ -13,7 +13,6 @@ import LibrariesPage from "./Components/LibrariesPage";
 import LoginPage from "./Components/LoginPage";
 import AdminPage from "./Components/AdminPage";
 import AccountPage from "./Components/AccountPage";
-import ProjectPage from "./Components/ProjectPage";
 import EditUserPage from "./Components/EditUserPage";
 import Library from "./Components/showLibrary"
 // React contextAPI for common app data
@@ -215,18 +214,9 @@ class App extends Component {
                   <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/admin" component={AdminPage} />
                   <Route exact path="/account" component={AccountPage} />
-                  <Route exact path="/project" component={ProjectPage} />
                   <Route exact path="/edituser/:uid" component={EditUserPage} />
-                  <Route
-                    exact
-                    path="/project/:proj_id"
-                    component={LibrariesPage}
-                  />
-                  <Route
-                    exact
-                    path="/getLib/:library_id"
-                    component={Library}
-                  />
+                  <Route exact path="/project/:proj_id" component={LibrariesPage} />
+                  <Route exact path="/getLib/:library_id" component={Library} />
                   <Route exact path="/" component={LibrariesPage} />
                 </Switch>
               </DataProvider>

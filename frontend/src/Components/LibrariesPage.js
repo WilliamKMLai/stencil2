@@ -144,10 +144,10 @@ class SimpleLibrariesPage extends React.Component {
             {/* Jumbotron or main message */}
             <div className={classes.jumbotron}>
               <div className={classes.container}>
-                <Typography variant="h3" gutterBottom>
+                <Typography variant="h4" gutterBottom>
                   Browse Experiments
                 </Typography>
-                <Typography variant="subtitle1" gutterBottom>
+                <Typography variant="subtitle2" gutterBottom>
                 Logged in as: {this.context.uid}
                 </Typography>
                 <Divider />
