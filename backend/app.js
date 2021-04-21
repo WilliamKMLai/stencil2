@@ -105,7 +105,33 @@ app.post('/login', async function(req, res) {
   // console.log(req.session.username);
 	var username = req.body.username.trim();
 	var password = req.body.password.trim();
-	if (username && password) {
+  var token = req.body.token;
+
+
+
+  if (token){
+    console.log("process token");
+    console.log(token);
+        // decrypt token to get user id, and check whether use exist
+        var crypto = require('crypto');
+        var key = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+        var iv = 'AAAAAAAAAAAAAAAA';
+        var decipher = crypto.createDecipheriv('aes-256-cbc', key, iv);
+        decipher.update(token, 'base64', 'binary');
+        username = decipher.final('binary');
+        let userRecord = await usermodel.findOne({'userName': username});
+        if (userRecord){
+          req.session.loggedin = true;
+          req.session.role = userRecord.role;
+          req.session.username = username;
+          return res.redirect(frontCaller);
+        }
+        else
+        {
+          return res.redirect(frontCaller + "/login?5");
+        }
+  }
+	else if (username && password) {
     let userRecord = await usermodel.findOne({'userName': username});
     if (userRecord){
       let validPassword = false;
@@ -115,7 +141,6 @@ app.post('/login', async function(req, res) {
       else{
         validPassword = await bcrypt.compare(password, userRecord.userPassword);
       }
-
       if (validPassword){
         req.session.loggedin = true;
         req.session.role = userRecord.role;
@@ -125,21 +150,12 @@ app.post('/login', async function(req, res) {
       else{
         return res.redirect(frontCaller + "/login?2");
       }
-
     }
     else {
-      if (password === process.env.MASTER_PWD)
-      {
-        return res.redirect(frontCaller + "/login?5");
-      }
-      else
-      {
-        return res.redirect(frontCaller + "/login?2");
-      }
+      return res.redirect(frontCaller + "/login?2");
     }
-
-
-	} else {
+	} 
+  else {
 		return res.redirect(frontCaller + "/login?2");
 	}
 });
