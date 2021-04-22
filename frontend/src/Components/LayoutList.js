@@ -93,7 +93,7 @@ class LayoutList extends React.Component {
       layoutIdToData[item.layoutId][item.tabId][item.stepId]=item;
     }
 
-    for (let layoutId of Object.keys(layoutIdToTitle).sort())
+    for (let layoutId of Object.keys(layoutIdToTitle))
     {
       let layoutTitle = layoutIdToTitle[layoutId];
       let tabTitles = [];
@@ -129,7 +129,6 @@ class LayoutList extends React.Component {
       if ("spacing" in layoutFormat){
         spacing= layoutFormat["spacing"]
       }
-
 
       for (let myTabId of Object.keys(layoutTabs[layoutId]).sort())
       {
