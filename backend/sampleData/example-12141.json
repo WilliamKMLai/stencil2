@@ -158,7 +158,7 @@
 		{
 			"id": "NonCoding0",
 			"dataType": "png",
-			"layoutId": "ThreePlots",
+			"layoutId": "Transcribed_Noncoding",
 			"layoutTitle": "TRANSCRIBED FEATURES - NON CODING",
 			"URL": "http://localhost:8081/localdata/12141/NonCoding-0.png",
 			"stepId": "0"
@@ -166,7 +166,7 @@
 		{
 			"id": "NonCoding1",
 			"dataType": "png",
-			"layoutId": "ThreePlots",
+			"layoutId": "Transcribed_Noncoding",
 			"layoutTitle": "TRANSCRIBED FEATURES - NON CODING",
 			"URL": "http://localhost:8081/localdata/12141/NonCoding-1.png",
 			"stepId": "1"
@@ -174,7 +174,7 @@
 		{
 			"id": "NonCoding2",
 			"dataType": "png",
-			"layoutId": "ThreePlots",
+			"layoutId": "Transcribed_Noncoding",
 			"layoutTitle": "TRANSCRIBED FEATURES - NON CODING",
 			"URL": "http://localhost:8081/localdata/12141/NonCoding-2.png",
 			"stepId": "2"
@@ -182,7 +182,7 @@
 		{
 			"id": "NonTranscribed0",
 			"dataType": "png",
-			"layoutId": "ThreePlots",
+			"layoutId": "NonTranscribed",
 			"layoutTitle": "NON TRANSCRIBED FEATURES",
 			"URL": "http://localhost:8081/localdata/12141/NonTranscribed-0.png",
 			"stepId": "0"
@@ -190,7 +190,7 @@
 		{
 			"id": "NonTranscribed1",
 			"dataType": "png",
-			"layoutId": "ThreePlots",
+			"layoutId": "NonTranscribed",
 			"layoutTitle": "NON TRANSCRIBED FEATURES",
 			"URL": "http://localhost:8081/localdata/12141/NonTranscribed-1.png",
 			"stepId": "1"
@@ -198,10 +198,145 @@
 		{
 			"id": "NonTranscribed2",
 			"dataType": "png",
-			"layoutId": "ThreePlots",
+			"layoutId": "NonTranscribed",
 			"layoutTitle": "NON TRANSCRIBED FEATURESG",
 			"URL": "http://localhost:8081/localdata/12141/NonTranscribed-2.png",
 			"stepId": "2"
+		},
+		{
+			"id": "Motif1_Logo",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 1",
+			"URL": "http://localhost:8081/localdata/12141/motif_logo1.png",
+			"stepId": "0"
+		},
+		{
+			"id": "Motif1_LogoRC",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 1",
+			"URL": "http://localhost:8081/localdata/12141/motif_logo1_rc.png",
+			"stepId": "1"
+		},
+		{
+			"id": "Motif1_Plot",
+			"dataType": "lineplot",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 1",
+			"URL": "http://localhost:8081/localdata/12141/Motif1_lineplot.json",
+			"stepId": "2"
+		},
+		{
+			"id": "Motif1_4Color",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 1",
+			"URL": "http://localhost:8081/localdata/12141/Motif_1_fourcolor.png",
+			"stepId": "3"
+		},
+		{
+			"id": "Motif1_Heatmap",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 1",
+			"URL": "http://localhost:8081/localdata/12141/Motif_1_Heatmap.png",
+			"stepId": "4"
+		},
+		{
+			"id": "Motif2_Logo",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 2",
+			"URL": "http://localhost:8081/localdata/12141/motif_logo2.png",
+			"stepId": "0"
+		},
+		{
+			"id": "Motif2_LogoRC",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 2",
+			"URL": "http://localhost:8081/localdata/12141/motif_logo2_rc.png",
+			"stepId": "1"
+		},
+		{
+			"id": "Motif2_Plot",
+			"dataType": "lineplot",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 2",
+			"URL": "http://localhost:8081/localdata/12141/Motif1_lineplot.json",
+			"stepId": "2"
+		},
+		{
+			"id": "Motif2_4Color",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 2",
+			"URL": "http://localhost:8081/localdata/12141/Motif_2_fourcolor.png",
+			"stepId": "3"
+		},
+		{
+			"id": "Motif2_Heatmap",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 2",
+			"URL": "http://localhost:8081/localdata/12141/Motif_2_Heatmap.png",
+			"stepId": "4"
+		},
+		{
+			"id": "Motif3_Logo",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 3",
+			"URL": "http://localhost:8081/localdata/12141/motif_logo3.png",
+			"stepId": "0"
+		},
+		{
+			"id": "Motif3_LogoRC",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 3",
+			"URL": "http://localhost:8081/localdata/12141/motif_logo3_rc.png",
+			"stepId": "1"
+		},
+		{
+			"id": "Motif3_Plot",
+			"dataType": "lineplot",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 3",
+			"URL": "http://localhost:8081/localdata/12141/Motif3_lineplot.json",
+			"stepId": "2"
+		},
+		{
+			"id": "Motif3_4Color",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 3",
+			"URL": "http://localhost:8081/localdata/12141/Motif_3_fourcolor.png",
+			"stepId": "3"
+		},
+		{
+			"id": "Motif3_Heatmap",
+			"dataType": "png",
+			"layoutId": "Motif_Analysis",
+			"layoutTitle": "MOTIF ANALYSIS",
+			"tabId": "MOTIF 3",
+			"URL": "http://localhost:8081/localdata/12141/Motif_3_Heatmap.png",
+			"stepId": "4"
 		}
 	]
 }

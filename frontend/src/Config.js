@@ -9,19 +9,6 @@ const settings = {
 };
 
 const layoutFormat = {
-  Motif_Analysis: {
-    layOut: [ [0,[2,3]],[1],[4]],
-    direction: "column",
-    plotSizes: {
-      0:[400,300],
-      1:[200,600],
-      2:[300,100],
-      3:[300,100],
-      4:[150,600]
-    },
-    plotTitles: {2:"Forward", 3:"Reverse"}
-  },
-
   SingleChart: {
     layOut: [[0]],
     direction: "column",
@@ -47,7 +34,7 @@ const layoutFormat = {
     plotTitles: {2:"Forward", 3:"Reverse"}
   },
 
-  ThreePlots: {
+  Transcribed_Noncoding: {
     layOut: [ [0],[1],[2] ],
     direction: "column",
     plotSizes: {
@@ -56,6 +43,30 @@ const layoutFormat = {
       2:[200,400]
     },
   },
+
+  NonTranscribed: {
+    layOut: [ [0],[1],[2] ],
+    direction: "column",
+    plotSizes: {
+      0:[200,300],
+      1:[200,300],
+      2:[200,300]
+    },
+  },
+
+  Motif_Analysis: {
+    layOut: [ [[0,1]],[2],[3],[4] ],
+    direction: "column",
+    spacing: 8,
+    plotSizes: {
+      0:[300,150],
+      1:[300,150],
+      2:[400,300],
+      3:[250,500],
+      4:[300,500]
+    },
+    plotTitles: {0:"Forward", 1:"Reverse"}
+  }
 
 };
 
