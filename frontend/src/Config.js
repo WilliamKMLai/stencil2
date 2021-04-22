@@ -22,48 +22,39 @@ const layoutFormat = {
     plotTitles: {2:"Forward", 3:"Reverse"}
   },
 
-  Bar_Chart: {
+  SingleChart: {
     layOut: [[0]],
     direction: "column",
     plotSizes: {
-      0:[800,400],
+      0:[800,600],
     }
-  },
-
-  Scatter_Plot: {
-    layOut: [[0]],
-    direction: "column",
-    plotSizes: {
-      0:[800,400],
-    },
-    plotTitles: {2:"Forward", 3:"Reverse"}
   },
 
   Transcribed_Features: {
     layOut: [ [0],[1],[2],[3],[4],[5],[6],[7] ],
     direction: "column",
+    spacing: 2,
     plotSizes: {
-      0:[190,410],
-      1:[190,410],
-      2:[190,410],
+      0:[300,300],
+      1:[300,300],
+      2:[300,300],
       3:[190,410],
       4:[190,410],
-      5:[300,300],
-      6:[300,300],
-      7:[300,300]
+      5:[190,410],
+      6:[190,410],
+      7:[190,410]
     },
     plotTitles: {2:"Forward", 3:"Reverse"}
   },
 
-  NonCoding_Features: {
-    layOut: [ [0],[1],[2]],
+  ThreePlots: {
+    layOut: [ [0],[1],[2] ],
     direction: "column",
     plotSizes: {
       0:[200,400],
       1:[200,400],
       2:[200,400]
     },
-    plotTitles: {2:"Forward", 3:"Reverse"}
   },
 
 };

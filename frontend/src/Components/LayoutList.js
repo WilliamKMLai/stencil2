@@ -125,6 +125,11 @@ class LayoutList extends React.Component {
         direction= layoutFormat["direction"]
       }
 
+      let spacing = "2";
+      if ("spacing" in layoutFormat){
+        spacing= layoutFormat["spacing"]
+      }
+
 
       for (let myTabId of Object.keys(layoutTabs[layoutId]).sort())
       {
@@ -144,6 +149,7 @@ class LayoutList extends React.Component {
           plotsizes = {plotsizes}
           plottitles = {plottitles}
           direction = {direction}
+          spacing = {spacing}
 
         />
         </Grid>
