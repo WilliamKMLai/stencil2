@@ -36,6 +36,11 @@ function LinePlot_stencil(props) {
   // Lineplot settings
   const plotOptions = {
     ...(props.chartOptions['colors']?{colors: props.chartOptions['colors']}:{colors: { scheme: 'spectral' } }),
+    ...(props.chartOptions['enableArea']?{enableArea: props.chartOptions['enableArea']}:{ }),
+    ...(props.chartOptions['areaOpacity']?{areaOpacity: props.chartOptions['areaOpacity']}:{ }),
+    ...(props.chartOptions['fill']?{fill: props.chartOptions['fill']}:{ }),
+    ...(props.chartOptions['fillOpacity']?{fillOpacity: props.chartOptions['fillOpacity']}:{ }),
+    
     ...(props.chartOptions['xScale']?{
       xScale: {
         ...(props.chartOptions['xScale']['type']?{ type: props.chartOptions['xScale']['type']}:{ type: 'linear' }),
@@ -58,7 +63,8 @@ function LinePlot_stencil(props) {
       yScale: { type: "linear", stacked: false, min: 'auto', max: 'auto' },
     }),
 
-    ...(props.chartOptions['enableSlices']?{enableSlices: props.chartOptions['enableSlices']}:{enableSlices: "x" }),
+    ...(props.chartOptions['enableSlices']?{enableSlices: props.chartOptions['enableSlices']}:{enableSlices: false }),
+    ...(props.chartOptions['useMesh']?{useMesh: props.chartOptions['useMesh']}:{useMesh: true }),
     ...(props.chartOptions['enablePoints']?{enablePoints: props.chartOptions['enablePoints']}:{enablePoints: false }),
 
     ...(props.chartOptions['axisBottom']?{
@@ -101,23 +107,6 @@ function LinePlot_stencil(props) {
         fontSize: 12
       }
     },
-    legends: [
-      {
-        anchor: "bottom",
-        direction: "row",
-        justify: false,
-        translateX: 0,
-        translateY: 80,
-        itemsSpacing: 0,
-        itemDirection: "left-to-right",
-        itemWidth: 120,
-        itemHeight: 20,
-        itemOpacity: 1.0,
-        symbolSize: 12,
-        symbolShape: "circle",
-        symbolBorderColor: "rgba(0, 0, 0, .5)"
-      }
-    ],
     markers: [
       {
         axis: "x",

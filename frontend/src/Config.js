@@ -27,8 +27,7 @@ const layoutFormat = {
     direction: "column",
     plotSizes: {
       0:[800,400],
-    },
-    plotTitles: {2:"Forward", 3:"Reverse"}
+    }
   },
 
   Scatter_Plot: {
@@ -41,30 +40,22 @@ const layoutFormat = {
   },
 
   Transcribed_Features: {
-    layOut: [ [0],[1],[2],[3], [4]],
+    layOut: [ [0],[1],[2],[3],[4],[5],[6],[7] ],
     direction: "column",
     plotSizes: {
-      0:[150,400],
-      1:[150,400],
-      2:[150,400],
-      3:[150,400],
-      4:[150,400]
+      0:[190,410],
+      1:[190,410],
+      2:[190,410],
+      3:[190,410],
+      4:[190,410],
+      5:[300,300],
+      6:[300,300],
+      7:[300,300]
     },
     plotTitles: {2:"Forward", 3:"Reverse"}
   },
 
   NonCoding_Features: {
-    layOut: [ [0],[1],[2]],
-    direction: "column",
-    plotSizes: {
-      0:[200,400],
-      1:[200,400],
-      2:[200,400]
-    },
-    plotTitles: {2:"Forward", 3:"Reverse"}
-  },
-
-  NonTranscribed_Features: {
     layOut: [ [0],[1],[2]],
     direction: "column",
     plotSizes: {
