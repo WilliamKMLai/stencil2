@@ -30,8 +30,7 @@ const layoutFormat = {
       5:[190,410],
       6:[190,410],
       7:[190,410]
-    },
-    plotTitles: {2:"Forward", 3:"Reverse"}
+    }
   },
 
   Transcribed_Noncoding: {

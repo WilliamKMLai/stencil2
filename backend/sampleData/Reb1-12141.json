@@ -5,7 +5,7 @@
 	"projectId": "YEP-local",
 	"libraryType": "ChIP-exo",
 	"sampleId": "Reb1",
-	"libraryId": "12141_v3",
+	"libraryId": "12141_v4",
 	"description": "RNA polymerase I enhancer binding protein; DNA binding protein that binds to genes transcribed by both RNA polymerase I and RNA polymerase II; required for termination of RNA polymerase I transcription; Reb1p bound to DNA acts to block RNA polymerase II readthrough transcription",
 	"createdBy": "cegr@psu.edu",
 	"token": "a23Ta13q",
@@ -272,7 +272,7 @@
 			"layoutId": "Motif_Analysis",
 			"layoutTitle": "MOTIF ANALYSIS",
 			"tabId": "MOTIF 2",
-			"URL": "http://localhost:8081/localdata/12141/Motif1_lineplot.json",
+			"URL": "http://localhost:8081/localdata/12141/Motif2_lineplot.json",
 			"stepId": "2"
 		},
 		{
