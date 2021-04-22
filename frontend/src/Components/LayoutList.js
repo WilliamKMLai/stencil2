@@ -125,7 +125,7 @@ class LayoutList extends React.Component {
         direction= layoutFormat["direction"]
       }
 
-      let spacing = "2";
+      let spacing = 2;
       if ("spacing" in layoutFormat){
         spacing= layoutFormat["spacing"]
       }
