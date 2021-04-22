@@ -7,7 +7,7 @@
       "xScale": { "type": "linear", "stacked": false, "min": -500, "max": "auto" },
       "yScale": { "type": "linear", "stacked": false, "min": -0.1, "max": 12 },
 
-			"axisBottom": { "orient": "bottom", "tickSize": 5, "tickPadding": 5, "tickRotation": 0,	"legend": "Distance from promoter midpoint (bp)", "legendOffset": 46, "legendPosition": "middle" },
+			"axisBottom": { "orient": "bottom", "tickSize": 5, "tickPadding": 5, "tickRotation": 0,	"tickValues": [-500,-250,0,250,500], "legend": "Distance from promoter midpoint (bp)", "legendOffset": 46, "legendPosition": "middle" },
 			"axisLeft": { "orient": "left", "tickSize": 5, "tickPadding": 5, "tickRotation": 0, "legend": "Occupancy", "legendOffset": -50, "legendPosition": "middle" }
 
     },

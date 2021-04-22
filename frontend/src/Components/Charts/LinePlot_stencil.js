@@ -40,7 +40,7 @@ function LinePlot_stencil(props) {
     ...(props.chartOptions['areaOpacity']?{areaOpacity: props.chartOptions['areaOpacity']}:{ }),
     ...(props.chartOptions['fill']?{fill: props.chartOptions['fill']}:{ }),
     ...(props.chartOptions['fillOpacity']?{fillOpacity: props.chartOptions['fillOpacity']}:{ }),
-    
+
     ...(props.chartOptions['xScale']?{
       xScale: {
         ...(props.chartOptions['xScale']['type']?{ type: props.chartOptions['xScale']['type']}:{ type: 'linear' }),
@@ -72,6 +72,7 @@ function LinePlot_stencil(props) {
             ...(props.chartOptions['axisBottom']['tickSize']?{ tickSize: props.chartOptions['axisBottom']['tickSize']}:{ tickSize: 5 }),
             ...(props.chartOptions['axisBottom']['tickPadding']?{ tickPadding: props.chartOptions['axisBottom']['tickPadding']}:{ tickPadding: 5 }),
             ...(props.chartOptions['axisBottom']['tickRotation']?{ tickRotation: props.chartOptions['axisBottom']['tickRotation'] }:{ tickRotation: 0 }),
+            ...(props.chartOptions['axisBottom']['tickValues']?{ tickValues: props.chartOptions['axisBottom']['tickValues'] }:{ }),
             ...(props.chartOptions['axisBottom']['orient']?{ orient: props.chartOptions['axisBottom']['orient'] }:{ orient: 'bottom' }),
             ...(props.chartOptions['axisBottom']['legend']?{ legend: props.chartOptions['axisBottom']['legend'] }:{ legend: "X-axis" }),
             ...(props.chartOptions['axisBottom']['legendPosition']?{ legendPosition: props.chartOptions['axisBottom']['legendPosition'] }:{ legendPosition: "middle"}),

@@ -5,7 +5,7 @@
 	"projectId": "YEP-local",
 	"libraryType": "ChIP-exo",
 	"sampleId": "Reb1",
-	"libraryId": "12141",
+	"libraryId": "12141_v3",
 	"description": "RNA polymerase I enhancer binding protein; DNA binding protein that binds to genes transcribed by both RNA polymerase I and RNA polymerase II; required for termination of RNA polymerase I transcription; Reb1p bound to DNA acts to block RNA polymerase II readthrough transcription",
 	"createdBy": "cegr@psu.edu",
 	"token": "a23Ta13q",
@@ -18,7 +18,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_Transcribed-0.png",
-	    "stepId": "0"
+	    "stepId": "3"
 	  },
 		{
 	    "id": "ChExMixImage1",
@@ -27,7 +27,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_Transcribed-1.png",
-	    "stepId": "1"
+	    "stepId": "4"
 	  },
 		{
 	    "id": "ChExMixImage2",
@@ -36,7 +36,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_Transcribed-2.png",
-	    "stepId": "2"
+	    "stepId": "5"
 	  },
 		{
 	    "id": "ChExMixImage3",
@@ -45,7 +45,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_Transcribed-3.png",
-	    "stepId": "3"
+	    "stepId": "6"
 	  },
 		{
 	    "id": "ChExMixImage4",
@@ -54,7 +54,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_Transcribed-4.png",
-	    "stepId": "4"
+	    "stepId": "7"
 	  },
 		{
 	    "id": "ChExMixPlot1",
@@ -63,7 +63,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_Promoter_lineplot.json",
-	    "stepId": "5"
+	    "stepId": "0"
 	  },
 		{
 	    "id": "ChExMixPlot2",
@@ -72,7 +72,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_TSS_lineplot.json",
-	    "stepId": "6"
+	    "stepId": "1"
 	  },
 		{
 	    "id": "ChExMixPlot3",
@@ -81,7 +81,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "ChExMix",
 	    "URL": "http://localhost:8081/localdata/12141/ChExMix_TES_lineplot.json",
-	    "stepId": "7"
+	    "stepId": "2"
 	  },
 		{
 	    "id": "SectorImage0",
@@ -90,7 +90,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_Transcribed-0.png",
-	    "stepId": "0"
+	    "stepId": "3"
 	  },
 		{
 	    "id": "SectorImage1",
@@ -99,7 +99,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_Transcribed-1.png",
-	    "stepId": "1"
+	    "stepId": "4"
 	  },
 		{
 	    "id": "SectorImage2",
@@ -108,7 +108,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_Transcribed-2.png",
-	    "stepId": "2"
+	    "stepId": "5"
 	  },
 		{
 	    "id": "SectorImage3",
@@ -117,7 +117,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_Transcribed-3.png",
-	    "stepId": "3"
+	    "stepId": "6"
 	  },
 		{
 	    "id": "SectorImage4",
@@ -126,7 +126,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_Transcribed-4.png",
-	    "stepId": "4"
+	    "stepId": "7"
 	  },
 		{
 	    "id": "SectorPlot1",
@@ -135,7 +135,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_Promoter_lineplot.json",
-	    "stepId": "5"
+	    "stepId": "0"
 	  },
 		{
 	    "id": "SectorPlot2",
@@ -144,7 +144,7 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_TSS_lineplot.json",
-	    "stepId": "6"
+	    "stepId": "1"
 	  },
 		{
 	    "id": "SectorPlot3",
@@ -153,7 +153,55 @@
 			"layoutTitle": "TRANSCRIBED FEATURES - RNA POLYMERASE II - CODING",
 	    "tabId": "SUBSECTOR",
 	    "URL": "http://localhost:8081/localdata/12141/Sector_TES_lineplot.json",
-	    "stepId": "7"
-	  }
+	    "stepId": "2"
+	  },
+		{
+			"id": "NonCoding0",
+			"dataType": "png",
+			"layoutId": "ThreePlots",
+			"layoutTitle": "TRANSCRIBED FEATURES - NON CODING",
+			"URL": "http://localhost:8081/localdata/12141/NonCoding-0.png",
+			"stepId": "0"
+		},
+		{
+			"id": "NonCoding1",
+			"dataType": "png",
+			"layoutId": "ThreePlots",
+			"layoutTitle": "TRANSCRIBED FEATURES - NON CODING",
+			"URL": "http://localhost:8081/localdata/12141/NonCoding-1.png",
+			"stepId": "1"
+		},
+		{
+			"id": "NonCoding2",
+			"dataType": "png",
+			"layoutId": "ThreePlots",
+			"layoutTitle": "TRANSCRIBED FEATURES - NON CODING",
+			"URL": "http://localhost:8081/localdata/12141/NonCoding-2.png",
+			"stepId": "2"
+		},
+		{
+			"id": "NonTranscribed0",
+			"dataType": "png",
+			"layoutId": "ThreePlots",
+			"layoutTitle": "NON TRANSCRIBED FEATURES",
+			"URL": "http://localhost:8081/localdata/12141/NonTranscribed-0.png",
+			"stepId": "0"
+		},
+		{
+			"id": "NonTranscribed1",
+			"dataType": "png",
+			"layoutId": "ThreePlots",
+			"layoutTitle": "NON TRANSCRIBED FEATURES",
+			"URL": "http://localhost:8081/localdata/12141/NonTranscribed-1.png",
+			"stepId": "1"
+		},
+		{
+			"id": "NonTranscribed2",
+			"dataType": "png",
+			"layoutId": "ThreePlots",
+			"layoutTitle": "NON TRANSCRIBED FEATURESG",
+			"URL": "http://localhost:8081/localdata/12141/NonTranscribed-2.png",
+			"stepId": "2"
+		}
 	]
 }
