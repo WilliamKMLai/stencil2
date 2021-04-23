@@ -15,16 +15,9 @@ const styles = {
   card: {
     maxWidth: 1100
   },
-  featureHeatmap: {
-    width: 250
-  },
   sectionTitle: {
     fontSize: 18
-  },
-  internalHeatmap: {
-    width: 230
-  },
-
+  }
 };
 
 class ImageArray extends React.Component {
@@ -79,12 +72,14 @@ class ImageArray extends React.Component {
           ;
         case "basictable":
           //console.log(item);
+          //console.log(item.preLoadData);
+          //console.log(item.preLoadData.tableData);
           return (sizes===undefined)?(
             <Grid item key={stepId}>
-              <BasicTable tableData={item.tableData} width={500} height={800}/>
+              <BasicTable tableData={item.preLoadData.tableData} width={500} height={800}/>
               </Grid>):(
             <Grid item key={stepId}>
-              <BasicTable tableData={item.tableData} width={sizes[0]} height={sizes[1]} />
+              <BasicTable tableData={item.preLoadData.tableData} width={sizes[0]} height={sizes[1]} />
               </Grid>)
           ;
         case "lineplot":
