@@ -286,7 +286,12 @@ exports.queryLibraryDataById = async (req, res, next) => {
       if ((doc!==null) && (doc.libraryData!==undefined)){
               doc.libraryData.forEach(item => {
                 //console.log(item);
-                if(item.get("dataType")==="lineplot" || item.get("dataType")==="barchart" || item.get("dataType")==="scatterplot" || item.get("dataType")==="heatmap") {
+                switch (item.get("dataType").toLowerCase()) {
+                  case "lineplot":
+                  case "barchart":
+                  case "scatterplot":
+                  case "heatmap":
+                  case "basictable":
                     var originalURL = item.get("URL");
                     //console.log(originalURL);
                     getList.push(axios.get(originalURL));
