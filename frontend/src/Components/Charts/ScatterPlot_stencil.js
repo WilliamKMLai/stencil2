@@ -32,6 +32,19 @@ function ScatterPlot_stencil(props) {
     return "No chart data detected";
   }
 
+  // Load individual colors into array if exists
+  let plotColor = [];
+  props.chartData.forEach(item => {
+    if(item.data[0].color !== undefined) {
+      plotColor.push(item.data[0].color);
+    }
+  });
+  if(plotColor.length === 0 && props.chartOptions['colors'] !== undefined) {
+    plotColor = props.chartOptions['colors'];
+  } else if (plotColor.length === 0) {
+    plotColor = "#646464";
+  }
+
   // Scatterplot settings
   const plotOptions = {
       ...(props.chartOptions['theme']?{
@@ -59,10 +72,6 @@ function ScatterPlot_stencil(props) {
           grid: { line: { stroke: "#333333", strokeWidth: 1 } }
         }
       }),
-
-      ...(props.chartOptions['colors']?{ colors: props.chartOptions['colors'] }:{ colors: [ "#646464" ] }),
-      ...(props.chartOptions['nodeSize']?{ nodeSize: props.chartOptions['nodeSize'] }:{ nodeSize: 5 }),
-
       ...(props.chartOptions['margin']?{
         margin: {
           ...(props.chartOptions['margin']['top']?{ top: props.chartOptions['margin']['top']}:{ top: 10 }),
@@ -73,6 +82,10 @@ function ScatterPlot_stencil(props) {
       }:{
         margin: { top: 10, right: 60, bottom: 60, left: 60 },
       }),
+
+      //...(props.chartOptions['colors']?{ colors: props.chartOptions['colors'] }:{ colors: [ "#646464" ] }),
+      ...(props.chartOptions['nodeSize']?{ nodeSize: props.chartOptions['nodeSize'] }:{ nodeSize: 5 }),
+
       ...(props.chartOptions['xScale']?{
         xScale: {
           ...(props.chartOptions['xScale']['type']?{ type: props.chartOptions['xScale']['type']}:{ type: 'linear' }),
@@ -125,7 +138,6 @@ function ScatterPlot_stencil(props) {
             axisLeft: { tickSize: 5, tickPadding: 5, tickRotation: 0, orient: 'left', legend: 'Y-axis', legendPosition: 'middle', legendOffset: -60 },
           }),
 
-
       //Always finish live chart with these
       animate: true,
       motionStiffness: 90,
@@ -146,6 +158,7 @@ function ScatterPlot_stencil(props) {
         width: 600,
         height: 500,
 
+        colors: plotColor,
         ...plotOptions
       })
     );
@@ -168,8 +181,7 @@ function ScatterPlot_stencil(props) {
     <div className={classes.card}>
       <Grid container direction="row">
         <Grid item>
-          <FullScreenDialog plotData={props.chartData} plotOptions={plotOptions}
-          />
+          <FullScreenDialog plotData={props.chartData} plotOptions={plotOptions} plotColor={plotColor} />
         </Grid>
         <Grid>
           <IconButton className={classes.exportButton} color="primary" onClick={handleExport}>
@@ -184,6 +196,7 @@ function ScatterPlot_stencil(props) {
         <ResponsiveScatterPlotCanvas
           data={props.chartData}
           {...plotOptions}
+          colors={plotColor}
         />
       </CardContent>
     </div>
