@@ -158,8 +158,9 @@ function ScatterPlot_stencil(props) {
         width: 600,
         height: 500,
 
-        colors: plotColor,
-        ...plotOptions
+        ...plotOptions,
+        colors: plotColor
+
       })
     );
 
