@@ -33,17 +33,42 @@ function BarChart_stencil(props) {
   }
 
   // BarChart settings
+  // Load individual colors into array if exists
+  let fillItems = [];
+  let defColor = [];
+  let plotColor = [];
+  function colorExists(newid) {
+    return defColor.some(function(el) {
+      return el.id === newid;
+    });
+  }
+  props.chartData.forEach(item => {
+    if(item.color !== undefined) {
+      fillItems.push({ match: { id: item.index }, id: item.color });
+      if(!colorExists(item.color)){
+        defColor.push({ id: item.color, type: "linearGradient", colors: [ { offset: 0, color: item.color }, {offset: 100, color: item.color } ] });
+      }
+    }
+  });
+  if(fillItems.length === 0 && props.chartOptions['colors'] !== undefined) {
+    plotColor = props.chartOptions['colors'];
+    fillItems = [];
+    defColor = [];
+  } else if (fillItems.length === 0) {
+    plotColor = "#646464";
+  }
+
   //console.log(props.chartOptions);
   const plotOptions = {
     ...(props.chartOptions['keys']?{keys: props.chartOptions['keys']}:{ }),
     ...(props.chartOptions['indexBy']?{indexBy: props.chartOptions['indexBy']}:{indexBy: props.chartOptions['keys'][0]}),
     ...(props.chartOptions['layout']?{layout: props.chartOptions['layout']}:{layout: "vertical"}),
     ...(props.chartOptions['groupMode']?{groupMode: props.chartOptions['groupMode']}:{groupMode: "stacked"}),
-    ...(props.chartOptions['colors']?{colors: props.chartOptions['colors']}:{colors: [ '#00ffff' ]}),
     ...(props.chartOptions['borderColor']?{borderColor: props.chartOptions['borderColor']}:{borderColor: [ '#000000' ]}),
     ...(props.chartOptions['borderWidth']?{borderWidth: props.chartOptions['borderWidth']}:{borderWidth: 1}),
     ...(props.chartOptions['padding']?{padding: props.chartOptions['padding']}:{padding: 0}),
     ...(props.chartOptions['innerPadding']?{innerPadding: props.chartOptions['innerPadding']}:{innerPadding: 1}),
+    ...(props.chartOptions['enableLabel']?{enableLabel: props.chartOptions['enableLabel']}:{enableLabel: false}),
 
     ...(props.chartOptions['axisBottom']?{
             axisBottom: {
@@ -68,14 +93,7 @@ function BarChart_stencil(props) {
           },
       }
       :{
-        axisBottom: {
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 45,
-          legend: props.chartOptions['keys'][0],
-          legendPosition: "middle",
-          legendOffset: 60
-        },
+        axisBottom: { tickSize: 5, tickPadding: 5, tickRotation: 45, legend: props.chartOptions['keys'][0], legendPosition: "middle", legendOffset: 60 },
       }),
 
     ...(props.chartOptions['axisLeft']?{
@@ -101,25 +119,26 @@ function BarChart_stencil(props) {
           },
       }
       :{
-        axisLeft: {
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: props.chartOptions['keys'][1],
-          legendPosition: "middle",
-          legendOffset: -50
-        },
+        axisLeft: { tickSize: 5, tickPadding: 5, tickRotation: 0, legend: props.chartOptions['keys'][1], legendPosition: "middle", legendOffset: -50 },
       }),
 
-    margin: { top: 5,right: 20, bottom: 80, left: 60 },
+      ...(props.chartOptions['margin']?{
+        margin: {
+          ...(props.chartOptions['margin']['top']?{ top: props.chartOptions['margin']['top']}:{ top: 10 }),
+          ...(props.chartOptions['margin']['right']?{ right: props.chartOptions['margin']['right']}:{ right: 60 }),
+          ...(props.chartOptions['margin']['bottom']?{ bottom: props.chartOptions['margin']['bottom']}:{ bottom: 60 }),
+          ...(props.chartOptions['margin']['left']?{ left: props.chartOptions['margin']['left']}:{ left: 60 })
+        },
+      }:{
+        margin: { top: 5, right: 20, bottom: 80, left: 80 },
+      }),
+
     theme: {
       fontSize: 12,
       fontFamily: "Roboto Slab"
     },
-    enableLabel: false,
     enableGridX: false,
     enableGridY: true,
-    colorBy: "id",
     labelSkipWidth: 12,
     labelSkipHeight: 12,
     labelTextColor: "#000000",
@@ -143,7 +162,11 @@ function BarChart_stencil(props) {
         width: 600,
         height: 500,
 
-        ...plotOptions
+        ...plotOptions,
+        defs: defColor,
+        fill: fillItems,
+        colors: plotColor
+
       })
     );
     //console.log(svgString);
@@ -169,7 +192,7 @@ function BarChart_stencil(props) {
     <div className={classes.card}>
       <Grid container direction="row">
         <Grid item>
-          <FullScreenDialog plotData={props.chartData} plotOptions={plotOptions}
+          <FullScreenDialog plotData={props.chartData} plotOptions={plotOptions} defs={defColor} fill={fillItems} colors={plotColor}
           />
         </Grid>
         <Grid>
@@ -185,6 +208,9 @@ function BarChart_stencil(props) {
         <ResponsiveBar
           data={props.chartData}
           {...plotOptions}
+          defs={defColor}
+          fill={fillItems}
+          colors={plotColor}
         />
       </CardContent>
     </div>

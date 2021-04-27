@@ -45,6 +45,9 @@ export default function FullScreenDialog(props) {
 
   let plotData = props.plotData;
   let plotOptions = props.plotOptions;
+  let defColor = props.defs;
+  let fillItems = props.fill;
+  let plotColor = props.colors;
 
   return (
     <div>
@@ -69,7 +72,7 @@ export default function FullScreenDialog(props) {
         {/* Expanded Chart */}
         <div className={classes.card}>
           <CardContent className={classes.chartContainer}>
-            <ResponsiveBar data={plotData} {...plotOptions} />
+            <ResponsiveBar data={plotData} {...plotOptions} defs={defColor} fill={fillItems} colors={plotColor}/>
           </CardContent>
         </div>
       </Dialog>
