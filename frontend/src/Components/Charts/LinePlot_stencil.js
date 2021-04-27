@@ -98,8 +98,24 @@ function LinePlot_stencil(props) {
           axisLeft: { tickSize: 5, tickPadding: 5, tickRotation: 0, orient: "left", legend: "Y-axis", legendOffset: -50, legendPosition: "middle"},
         }),
 
+    ...(props.chartOptions['legends']?{
+          legends: [ {
+              ...(props.chartOptions['legends']['anchor']?{ anchor: props.chartOptions['legends']['anchor']}:{ anchor: "bottom" }),
+              ...(props.chartOptions['legends']['direction']?{ direction: props.chartOptions['legends']['direction']}:{ direction: "row" }),
+              ...(props.chartOptions['legends']['translateY']?{ translateY: props.chartOptions['legends']['translateY']}:{ translateY: 75 }),
+              ...(props.chartOptions['legends']['itemsSpacing']?{ itemsSpacing: props.chartOptions['legends']['itemsSpacing']}:{ itemsSpacing: 0 }),
+              ...(props.chartOptions['legends']['itemDirection']?{ itemDirection: props.chartOptions['legends']['itemDirection']}:{ itemDirection: "left-to-right" }),
+              ...(props.chartOptions['legends']['itemHeight']?{ itemHeight: props.chartOptions['legends']['itemHeight']}:{ itemHeight: 15 }),
+              ...(props.chartOptions['legends']['itemWidth']?{ itemWidth: props.chartOptions['legends']['itemWidth']}:{ itemHeight: 60 }),
+              ...(props.chartOptions['legends']['symbolSize']?{ symbolSize: props.chartOptions['legends']['symbolSize']}:{ symbolSize: 8 }),
+              ...(props.chartOptions['legends']['symbolShape']?{ symbolShape: props.chartOptions['legends']['symbolShape']}:{ symbolShape: 'circle' })
+          } ],
+        }
+        :{
+          //Default No legend present
+        }),
 
-    margin: { top: 5, right: 20, bottom: 80, left: 60 },
+    margin: { top: 5, right: 20, bottom: 90, left: 60 },
     theme: {
       fontSize: 14,
       fontFamily: "Roboto Slab",
