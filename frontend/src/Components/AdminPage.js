@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { Paper, Typography, Button, Tabs, Tab } from "@material-ui/core";
 
 // Import Table components
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
+import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 
 import DataContext from "./DataContext";
 import Config from "../Config";
@@ -204,7 +204,6 @@ class ProjectTable extends React.Component {
       let target = event.target;
       let value =  target.checked;
       let name = target.name;
-      console.log("show ssss");
       console.log(String(value));
       let projectState= this.state[name];
       projectState[0] = ! projectState[0];
@@ -256,15 +255,19 @@ class ProjectTable extends React.Component {
                           id={proj + "__desc"}
                           value={this.state[proj][1]}
                           onChange={handleTextboxChange}
-                          cols={80}
-                          rows={3}
+                          cols={60}
+                          rows={6}
                           />
                         </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
-                <Button type="submit" color="primary" fullWidth variant="contained">Submit</Button>
+                <br />
+                <Box textAlign='center'>
+                  <Button type="submit" color="primary" style={{ minWidth: '200px' }} variant="contained">Submit</Button>
+                </Box>
+                <br />
               </TableContainer>
           </Paper>
         </form>
