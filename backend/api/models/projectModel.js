@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const projectSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   projectId: { type: String },
-  public: {type: Boolean}
+  public: {type: Boolean},
+  description: {type:String}
 }
 , { collection: 'stencilProjects' }
 );

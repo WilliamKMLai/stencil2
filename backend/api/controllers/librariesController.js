@@ -60,7 +60,8 @@ exports.allProjects =  async  (req, res, next) => {
           {
             _id: new mongoose.Types.ObjectId(),
             projectId: projId,
-            public: false
+            public: false,
+            description: ""
           }
         )
          await newProj.save();
@@ -73,6 +74,16 @@ exports.allProjects =  async  (req, res, next) => {
     res.status(200).json(projs);
 
 
+}
+
+
+exports.projDesc =  async  (req, res, next) => {
+  let projs =  await myProj.find();
+  let projObs = {};
+  projs.forEach(proj=>{
+    projObs[proj.projectId] = proj.description;
+  })
+  res.status(200).json(projObs);
 }
 
 exports.allUsers = (req, res, next) => {

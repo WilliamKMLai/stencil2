@@ -104,7 +104,8 @@ class App extends Component {
     data: null,
     currentProject: null,
     projList: null,
-    login:false
+    login:false,
+    projDesc: {}
   };
 
   componentDidMount() {
@@ -119,18 +120,22 @@ class App extends Component {
       proj = found[1];
     }
 
+
+
     let proj2Libs = {};
     let backendURL = apiBaseURL + libraryEndPoint;
-    axios
-      .get(backendURL, {withCredentials: true})
-      .then(res => {
-        let theUid = res.data.uid;
-        let theRole = res.data.role;
+    let backendURL2 = apiBaseURL + "/libraries/projdesc";
+    axios.all([
+      axios.get(backendURL, {withCredentials: true}), 
+      axios.get(backendURL2)
+    ]).then(axios.spread((res1, res2) => {
+        let theUid = res1.data.uid;
+        let theRole = res1.data.role;
         let items = [];
         let projSearchList = [];
         if (theUid){
-          if (Object.keys(res.data.libraries).length > 0){
-            res.data.libraries.forEach(library => {
+          if (Object.keys(res1.data.libraries).length > 0){
+            res1.data.libraries.forEach(library => {
               if (! proj2Libs.hasOwnProperty(library.projectId)){
                 proj2Libs[library.projectId]= [];
               }
@@ -160,9 +165,9 @@ class App extends Component {
             items.sort(compareByLabel);
           }
 
-
-          this.setState({uid: theUid, role:theRole, allLibraryList: items, currentProject:proj, projList:projSearchList, login:true });
-          // console.log(items);
+          console.log(res2);
+          this.setState({uid: theUid, role:theRole, allLibraryList: items, currentProject:proj, projList:projSearchList, login:true, projDesc:res2.data });
+          
         }
         else
         {
@@ -171,13 +176,12 @@ class App extends Component {
         }
 
 
-      })
+      }))
       .catch(err => {
         console.log(err);
       });
 
-
-  }
+    }
 
   render() {
     const { isThemeLight } = this.state;
@@ -191,7 +195,8 @@ class App extends Component {
       allLibraryList:  this.state.allLibraryList,
       currentProject: this.state.currentProject,
       projList: this.state.projList,
-      login: this.state.login
+      login: this.state.login,
+      projDesc: this.state.projDesc
 
     };
 

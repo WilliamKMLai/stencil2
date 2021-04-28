@@ -186,10 +186,12 @@ class ProjectTable extends React.Component {
     axios
       .get(Config.settings.apiURL + "/libraries/allprojs", {withCredentials: true})
       .then(res => {
-        let hh = {};
         res.data.forEach(item=>{
-            hh[item.projectId] = item.public;
-            this.setState({[item.projectId]:item.public});
+            let desc = item.description;
+            if (! desc){
+              desc = "";
+            }
+            this.setState({[item.projectId]:[item.public, desc]});
           }
         )
       })
@@ -204,7 +206,18 @@ class ProjectTable extends React.Component {
       let name = target.name;
       console.log("show ssss");
       console.log(String(value));
-      this.state[name]?this.setState({[name]: false}):this.setState({[name]: true})
+      let projectState= this.state[name];
+      projectState[0] = ! projectState[0];
+      this.setState({[name]: projectState})
+    }
+
+    let handleTextboxChange = event =>{
+      let target = event.target;
+      let value =  target.value;
+      let name = target.name.replace("__desc", "") ;
+      let projectState= this.state[name];
+      projectState[1] = value;
+      this.setState({[name]: projectState});
     }
 
     return(
@@ -221,6 +234,7 @@ class ProjectTable extends React.Component {
                     <TableRow>
                       <TableCell align="left">Project ID</TableCell>
                       <TableCell align="left">Public</TableCell>
+                      <TableCell align="left">Description</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -233,10 +247,18 @@ class ProjectTable extends React.Component {
                           <input name={proj}
                           id={proj}
                           type="checkbox"
-                          checked={this.state[proj]}
+                          checked={this.state[proj][0]}
                           onChange={handleCheckboxChange}
                            />
-
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          <textarea  name={proj + "__desc"}
+                          id={proj + "__desc"}
+                          value={this.state[proj][1]}
+                          onChange={handleTextboxChange}
+                          cols={80}
+                          rows={3}
+                          />
                         </TableCell>
                       </TableRow>
                     ))}

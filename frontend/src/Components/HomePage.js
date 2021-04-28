@@ -170,7 +170,7 @@ class HomePage extends React.Component {
                   <Divider />
                   <br />
                   <Typography variant="body1">
-                    Project summary.
+                  {this.context.projDesc[this.context.currentProject]}
                   </Typography>
                   <br />
                 </div>

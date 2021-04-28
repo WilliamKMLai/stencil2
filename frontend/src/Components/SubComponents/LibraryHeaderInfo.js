@@ -16,7 +16,7 @@ function HeaderInfo(props) {
 
           {/* group tag */}
           <Typography component="p" variant="body1">
-            {props.data.description ? props.data.description : "-"}
+            {props.data.libraryDescription ? props.data.libraryDescription : "-"}
           </Typography>
 
         </Grid>

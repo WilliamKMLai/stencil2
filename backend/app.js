@@ -227,14 +227,15 @@ app.post("/updateProjects", async function(req, res){
     projmodel.find().exec()
     .then (projs => {
       projs.map(proj =>{
+        let desc = req.body[proj.projectId + "__desc"]
         if (proj.projectId in req.body){
           console.log("update to yes");
-          proj.updateOne({public:true}).exec()
+          proj.updateOne({public:true, description:desc}).exec()
         }
         else
         {
           console.log("update no");
-          proj.updateOne({public:false}).exec()
+          proj.updateOne({public:false, description:desc}).exec()
         }
       }
        
