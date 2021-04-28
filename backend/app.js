@@ -154,7 +154,7 @@ app.post('/login', async function(req, res) {
     else {
       return res.redirect(frontCaller + "/login?2");
     }
-	} 
+	}
   else {
 		return res.redirect(frontCaller + "/login?2");
 	}
@@ -238,13 +238,13 @@ app.post("/updateProjects", async function(req, res){
           proj.updateOne({public:false, description:desc}).exec()
         }
       }
-       
+
       )
-  
+
     })
-  
-  
-    return res.redirect(frontCaller + "/project");
+
+
+    return res.redirect(frontCaller + "/admin");
   }
   else
   {

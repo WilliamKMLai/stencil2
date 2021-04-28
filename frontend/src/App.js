@@ -127,7 +127,7 @@ class App extends Component {
     let backendURL = apiBaseURL + libraryEndPoint;
     let backendURL2 = apiBaseURL + "/libraries/projdesc";
     axios.all([
-      axios.get(backendURL, {withCredentials: true}), 
+      axios.get(backendURL, {withCredentials: true}),
       axios.get(backendURL2)
     ]).then(axios.spread((res1, res2) => {
         let theUid = res1.data.uid;
@@ -155,7 +155,6 @@ class App extends Component {
               projSearchList = theProjList.map(item=>{return({value:item, label:item})})
             }
 
-
             const libList = proj2Libs[proj];
 
             // create the search options; [replace with existing search endpoint in future]
@@ -166,9 +165,9 @@ class App extends Component {
             items.sort(compareByLabel);
           }
 
-          console.log(res2);
+          //console.log(res2);
           this.setState({uid: theUid, role:theRole, allLibraryList: items, currentProject:proj, projList:projSearchList, login:true, projDesc:res2.data });
-          
+
         }
         else
         {
