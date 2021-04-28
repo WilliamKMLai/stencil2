@@ -5,7 +5,7 @@
 		"libraryType": "ChIP-exo",
 		"sampleId": "Abf1",
 		"libraryId": "Abf1-19442",
-		"description": "RNA polymerase I enhancer binding protein; DNA binding protein that binds to genes transcribed by both RNA polymerase I and RNA polymerase II; required for termination of RNA polymerase I transcription; Reb1p bound to DNA acts to block RNA polymerase II readthrough transcription",
+		"libraryDescription": "DNA binding protein with possible chromatin-reorganizing activity; involved in transcriptional activation, gene silencing, and DNA replication and repair",
 		"createdBy": "cegr@psu.edu",
 		"token": "a23Ta13q",
 		"submitter": "cegr@psu.edu",

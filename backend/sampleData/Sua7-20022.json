@@ -5,7 +5,7 @@
 		"libraryType": "ChIP-exo",
 		"sampleId": "Sua7",
 		"libraryId": "Sua7-20022",
-		"description": "RNA polymerase I enhancer binding protein; DNA binding protein that binds to genes transcribed by both RNA polymerase I and RNA polymerase II; required for termination of RNA polymerase I transcription; Reb1p bound to DNA acts to block RNA polymerase II readthrough transcription",
+		"libraryDescription": "Transcription factor TFIIB; a general transcription factor required for transcription initiation and start site selection by RNA polymerase II",
 		"createdBy": "cegr@psu.edu",
 		"token": "a23Ta13q",
 		"submitter": "cegr@psu.edu",
