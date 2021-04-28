@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 import { CardContent, Typography, Grid, Paper, Tabs, Tab, Radio} from "@material-ui/core";
 
+import IGVBrowser from "../SubComponents/IGVbrowser";
 import BasicTable from "../Tables/BasicTable_stencil";
 import LinePlot from "../Charts/LinePlot_stencil";
 import BarChart from "../Charts/BarChart_stencil";
@@ -68,6 +69,18 @@ class ImageArray extends React.Component {
               </Grid>):(
             <Grid item key={stepId}>
               <img src={item.URL} alt={item.dataLabel} title={item.dataLabel} width={sizes[0]} height={sizes[1]} />
+              </Grid>)
+          ;
+        case "igvtrack":
+          //console.log(item);
+          //console.log(item.preLoadData);
+          //console.log(item.preLoadData.trackData);
+          return (sizes===undefined)?(
+            <Grid item key={stepId}>
+              <IGVBrowser trackData={item.preLoadData.trackData} trackOptions={item.preLoadData.trackOptions} width={500} height={800}/>
+              </Grid>):(
+            <Grid item key={stepId}>
+              <IGVBrowser trackData={item.preLoadData.trackData} trackOptions={item.preLoadData.trackOptions} width={sizes[0]} height={sizes[1]} />
               </Grid>)
           ;
         case "basictable":

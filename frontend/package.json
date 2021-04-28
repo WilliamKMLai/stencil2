@@ -12,6 +12,7 @@
     "@nivo/scatterplot": "^0.66.0",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
+    "igv": "^2.8.1",
     "mui-datatables": "^3.7.7",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

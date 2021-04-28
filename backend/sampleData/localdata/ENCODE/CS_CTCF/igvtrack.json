@@ -1,0 +1,13 @@
+{
+	"trackOptions": {
+		"genome": "hg19"
+	},
+	"trackData":
+	[
+		{
+			"name": "CTCF",
+			"url": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCFF400DFR.bigBed",
+			"format": "bigBed"
+		}
+	]
+}

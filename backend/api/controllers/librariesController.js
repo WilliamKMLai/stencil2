@@ -76,7 +76,6 @@ exports.allProjects =  async  (req, res, next) => {
 
 }
 
-
 exports.projDesc =  async  (req, res, next) => {
   let projs =  await myProj.find();
   let projObs = {};
@@ -305,6 +304,7 @@ exports.queryLibraryDataById = async (req, res, next) => {
                   case "scatterplot":
                   case "heatmap":
                   case "basictable":
+                  case "igvtrack":
                     var originalURL = item.get("URL");
                     //console.log(originalURL);
                     getList.push(axios.get(originalURL));
@@ -425,7 +425,7 @@ exports.createNewLibrary = (req, res, next) => {
   {
     req.body.libraryDescription = "";
   }
-  
+
   if (req.body.libraryType === undefined)
   {
     req.body.libraryType = "";
