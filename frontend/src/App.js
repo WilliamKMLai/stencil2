@@ -117,7 +117,8 @@ class App extends Component {
     let proj = "";
     const found = url.match("project/([^?]+)");
     if (found){
-      proj = found[1];
+      //proj = found[1];
+      proj = decodeURI(found[1]);
     }
 
 

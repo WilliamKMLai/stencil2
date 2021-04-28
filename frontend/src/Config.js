@@ -17,6 +17,15 @@ const layoutFormat = {
     }
   },
 
+  DoubleChart: {
+    layOut: [[0], [1]],
+    direction: "column",
+    plotSizes: {
+      0:[800,600],
+      1:[800,600]
+    }
+  },
+
   Transcribed_Features: {
     layOut: [ [0],[1],[2],[3],[4],[5],[6],[7] ],
     direction: "column",
@@ -65,7 +74,33 @@ const layoutFormat = {
       4:[300,500]
     },
     plotTitles: {0:"Forward", 1:"Reverse"}
-  }
+  },
+
+  Chexmix_Subtype: {
+    layOut: [ [[0,1]],[2],[3],[4],[5],[6] ],
+    direction: "column",
+    spacing: 2,
+    plotSizes: {
+      0:[350,150],
+      1:[350,150],
+      2:[500,300],
+      3:[200,500],
+      4:[200,500],
+      5:[200,500],
+      6:[400,400]
+    },
+    plotTitles: {0:"Forward", 1:"Reverse"}
+  },
+
+  Mammalian_Feature: {
+    layOut: [ [0],[1],[2] ],
+    direction: "column",
+    plotSizes: {
+      0:[500,500],
+      1:[250,500],
+      2:[250,500]
+    },
+  },
 
 };
 
