@@ -144,6 +144,7 @@ exports.getBatchLibraryMetaInfo = async (req, res, next) => {
           return {
             dbId: doc._id,
             libraryId: doc.libraryId,
+            libraryDescription: doc.libraryDescription,
             sampleId: doc.sampleId,
             projectId: doc.projectId,
             groupTag: doc.groupTag,
@@ -219,6 +220,7 @@ exports.getAllLibraryMetaInfo = async (req, res, next) => {
           return {
             dbId: doc._id,
             libraryId: doc.libraryId,
+            libraryDescription: doc.libraryDescription,
             sampleId: doc.sampleId,
             projectId: doc.projectId,
             groupTag: doc.groupTag,
@@ -336,6 +338,7 @@ exports.queryLibraryDataById = async (req, res, next) => {
             libraries:[{
               dbId: doc._id,
               libraryId: doc.libraryId,
+              libraryDescription: doc.libraryDescription,
               sampleId: doc.sampleId,
               projectId: doc.projectId,
               groupTag: doc.groupTag,
@@ -361,6 +364,7 @@ exports.queryLibraryDataById = async (req, res, next) => {
           libraries:[{
             dbId: doc._id,
             libraryId: doc.libraryId,
+            libraryDescription: doc.libraryDescription,
             sampleId: doc.sampleId,
             projectId: doc.projectId,
             groupTag: doc.groupTag,
@@ -417,6 +421,11 @@ exports.createNewLibrary = (req, res, next) => {
     req.body.groupTag = {};
   }
 
+  if (req.body.libraryDescription === undefined)
+  {
+    req.body.libraryDescription = "";
+  }
+  
   if (req.body.libraryType === undefined)
   {
     req.body.libraryType = "";
@@ -532,6 +541,7 @@ exports.createNewLibrary = (req, res, next) => {
         const newLib = new myLib({
           _id: new mongoose.Types.ObjectId(),
           libraryId: postedLibId,
+          libraryDescription: req.body.libraryDescription,
           sampleId: req.body.sampleId,
           projectId: postedProjectId,
           groupTag: req.body.groupTag,
@@ -554,6 +564,7 @@ exports.createNewLibrary = (req, res, next) => {
               sample: {
                 dbId: result._id,
                 libraryId: result.libraryId,
+                libraryDescription: result.libraryDescription,
                 sampleId: result.sampleId,
                 projectId: result.projectId,
                 groupTag: result.groupTag,

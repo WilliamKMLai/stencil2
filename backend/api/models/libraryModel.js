@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const librarySchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   libraryId: { type: String },
+  libraryDescription: {type:String},
   sampleId: {type: String},
   projectId: { type: String },
   groupTag: {type: Map, of: String},
