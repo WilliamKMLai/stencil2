@@ -26,6 +26,32 @@ const layoutFormat = {
     }
   },
 
+  ENCODE_Feature: {
+    layOut: [ [0],[1],[2],[3] ],
+    direction: "column",
+    plotSizes: {
+      0:[400,400],
+      1:[200,500],
+      2:[200,500],
+      3:[200,500],
+    },
+  },
+
+  ENCODE_Motif: {
+    layOut: [ [[0,1]],[2],[3],[4],[5],[6] ],
+    direction: "column",
+    plotSizes: {
+      0:[325,150],
+      1:[325,150],
+      2:[600,400],
+      3:[200,500],
+      4:[225,500],
+      5:[225,500],
+      6:[225,500]
+    },
+    plotTitles: {0:"Forward", 1:"Reverse"}
+  },
+
   Transcribed_Features: {
     layOut: [ [0],[1],[2],[3],[4],[5],[6],[7] ],
     direction: "column",
@@ -100,7 +126,7 @@ const layoutFormat = {
       1:[250,500],
       2:[250,500]
     },
-  },
+  }
 
 };
 

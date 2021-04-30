@@ -18,210 +18,156 @@
 			"stepId": "0"
 		},
 		{
-			"id": "Motif1_Logo",
+			"id": "Motif0_Logo",
 			"dataType": "png",
-			"layoutId": "Motif_Analysis",
+			"layoutId": "ENCODE_Motif",
 			"layoutTitle": "MOTIF ANALYSIS",
 			"tabId": "MOTIF 1",
-			"URL": "http://localhost:8081/localdata/YEP/12141/motif_logo1.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_motif0.png",
 			"stepId": "0"
 		},
 		{
-			"id": "Motif1_LogoRC",
+			"id": "Motif0_LogoRC",
 			"dataType": "png",
-			"layoutId": "Motif_Analysis",
+			"layoutId": "ENCODE_Motif",
 			"layoutTitle": "MOTIF ANALYSIS",
 			"tabId": "MOTIF 1",
-			"URL": "http://localhost:8081/localdata/YEP/12141/motif_logo1_rc.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_motif0_rc.png",
 			"stepId": "1"
 		},
 		{
-			"id": "Motif1_Plot",
+			"id": "Motif0_Plot",
 			"dataType": "lineplot",
-			"layoutId": "Motif_Analysis",
+			"layoutId": "ENCODE_Motif",
 			"layoutTitle": "MOTIF ANALYSIS",
 			"tabId": "MOTIF 1",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif1_lineplot.json",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_motif0_lineplot.json",
 			"stepId": "2"
 		},
 		{
-			"id": "Motif1_4Color",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
+			"id": "Motif0_4Color",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Motif",
 			"layoutTitle": "MOTIF ANALYSIS",
 			"tabId": "MOTIF 1",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif_1_fourcolor.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_motif0_50bp.svg",
 			"stepId": "3"
 		},
 		{
-			"id": "Motif1_Heatmap",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
+			"id": "Motif0_Sample1",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Motif",
 			"layoutTitle": "MOTIF ANALYSIS",
 			"tabId": "MOTIF 1",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif_1_Heatmap.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_motif0_ENCFF487UYG_read1_combined_treeview.svg",
 			"stepId": "4"
 		},
 		{
-			"id": "Motif2_Logo",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
+			"id": "Motif0_Sample2",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Motif",
 			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 2",
-			"URL": "http://localhost:8081/localdata/YEP/12141/motif_logo2.png",
-			"stepId": "0"
+			"tabId": "MOTIF 1",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_motif0_ENCFF496SZR_read1_combined_treeview.svg",
+			"stepId": "5"
 		},
 		{
-			"id": "Motif2_LogoRC",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
+			"id": "Motif0_Control",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Motif",
 			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 2",
-			"URL": "http://localhost:8081/localdata/YEP/12141/motif_logo2_rc.png",
-			"stepId": "1"
-		},
-		{
-			"id": "Motif2_Plot",
-			"dataType": "lineplot",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 2",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif2_lineplot.json",
-			"stepId": "2"
-		},
-		{
-			"id": "Motif2_4Color",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 2",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif_2_fourcolor.png",
-			"stepId": "3"
-		},
-		{
-			"id": "Motif2_Heatmap",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 2",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif_2_Heatmap.png",
-			"stepId": "4"
-		},
-		{
-			"id": "Motif3_Logo",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 3",
-			"URL": "http://localhost:8081/localdata/YEP/12141/motif_logo3.png",
-			"stepId": "0"
-		},
-		{
-			"id": "Motif3_LogoRC",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 3",
-			"URL": "http://localhost:8081/localdata/YEP/12141/motif_logo3_rc.png",
-			"stepId": "1"
-		},
-		{
-			"id": "Motif3_Plot",
-			"dataType": "lineplot",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 3",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif3_lineplot.json",
-			"stepId": "2"
-		},
-		{
-			"id": "Motif3_4Color",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 3",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif_3_fourcolor.png",
-			"stepId": "3"
-		},
-		{
-			"id": "Motif3_Heatmap",
-			"dataType": "png",
-			"layoutId": "Motif_Analysis",
-			"layoutTitle": "MOTIF ANALYSIS",
-			"tabId": "MOTIF 3",
-			"URL": "http://localhost:8081/localdata/YEP/12141/Motif_3_Heatmap.png",
-			"stepId": "4"
+			"tabId": "MOTIF 1",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_motif0_ENCFF710NTS_read1_combined_treeview.svg",
+			"stepId": "6"
 		},
 		{
 			"id": "CTCF-0",
 			"dataType": "lineplot",
-			"layoutId": "Mammalian_Feature",
+			"layoutId": "ENCODE_Feature",
 			"layoutTitle": "FEATURE PILEUP",
 			"tabId": "CTCF",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_Feature_CTCF_lineplot.json",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_CTCF_lineplot.json",
 			"stepId": "0"
 		},
 		{
 			"id": "CTCF-1",
-			"dataType": "png",
-			"layoutId": "Mammalian_Feature",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Feature",
 			"layoutTitle": "FEATURE PILEUP",
 			"tabId": "CTCF",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_Feature_CTCF_Heatmap.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/hg19_CTCF_2000bp_ENCFF487UYG_read1_combined_treeview.svg",
 			"stepId": "1"
 		},
 		{
 			"id": "CTCF-2",
-			"dataType": "png",
-			"layoutId": "Mammalian_Feature",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Feature",
 			"layoutTitle": "FEATURE PILEUP",
 			"tabId": "CTCF",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_Feature_CTCF-IgG_Heatmap.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/hg19_CTCF_2000bp_ENCFF496SZR_read1_combined_treeview.svg",
 			"stepId": "2"
+		},
+		{
+			"id": "CTCF-3",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Feature",
+			"layoutTitle": "FEATURE PILEUP",
+			"tabId": "CTCF",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/hg19_CTCF_2000bp_ENCFF710NTS_read1_combined_treeview.svg",
+			"stepId": "3"
 		},
 		{
 			"id": "TSS-0",
 			"dataType": "lineplot",
-			"layoutId": "Mammalian_Feature",
+			"layoutId": "ENCODE_Feature",
 			"layoutTitle": "FEATURE PILEUP",
 			"tabId": "TSS",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_Feature_TSS_lineplot.json",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCSR000EGM_TSS_lineplot.json",
 			"stepId": "0"
 		},
 		{
 			"id": "TSS-1",
-			"dataType": "png",
-			"layoutId": "Mammalian_Feature",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Feature",
 			"layoutTitle": "FEATURE PILEUP",
 			"tabId": "TSS",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_Feature_TSS_Heatmap.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/hg19_TSS_2000bp_ENCFF487UYG_read1_combined_treeview.svg",
 			"stepId": "1"
 		},
 		{
 			"id": "TSS-2",
-			"dataType": "png",
-			"layoutId": "Mammalian_Feature",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Feature",
 			"layoutTitle": "FEATURE PILEUP",
 			"tabId": "TSS",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_Feature_TSS-IgG_Heatmap.png",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/hg19_TSS_2000bp_ENCFF496SZR_read1_combined_treeview.svg",
 			"stepId": "2"
 		},
 		{
-			"id": "chromHMM-log2",
+			"id": "TSS-3",
+			"dataType": "svg",
+			"layoutId": "ENCODE_Feature",
+			"layoutTitle": "FEATURE PILEUP",
+			"tabId": "TSS",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/hg19_TSS_2000bp_ENCFF710NTS_read1_combined_treeview.svg",
+			"stepId": "3"
+		},
+		{
+			"id": "repeat-log2",
 			"dataType": "barchart",
 			"layoutId": "DoubleChart",
 			"layoutTitle": "STATE ENRICHMENT",
-			"tabId": "chromHMM",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_chromHMM-log2_barchart.json",
+			"tabId": "Repeat Element",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCFF738TKN_repeat_log2.json",
 			"stepId": "0"
 		},
 		{
-			"id": "chromHMM-freq",
+			"id": "repeat-freq",
 			"dataType": "barchart",
 			"layoutId": "DoubleChart",
 			"layoutTitle": "STATE ENRICHMENT",
-			"tabId": "chromHMM",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_chromHMM-histogram_barchart.json",
+			"tabId": "Repeat Element",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCFF738TKN_repeat_freq.json",
 			"stepId": "1"
 		},
 		{
@@ -230,7 +176,7 @@
 			"layoutId": "DoubleChart",
 			"layoutTitle": "STATE ENRICHMENT",
 			"tabId": "Segway",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_segway-log2_barchart.json",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCFF738TKN_segway_log2.json",
 			"stepId": "0"
 		},
 		{
@@ -239,7 +185,25 @@
 			"layoutId": "DoubleChart",
 			"layoutTitle": "STATE ENRICHMENT",
 			"tabId": "Segway",
-			"URL": "http://localhost:8081/localdata/PCRP/17380/17380_segway-histogram_barchart.json",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCFF738TKN_segway_freq.json",
+			"stepId": "1"
+		},
+		{
+			"id": "chromHMM-log2",
+			"dataType": "barchart",
+			"layoutId": "DoubleChart",
+			"layoutTitle": "STATE ENRICHMENT",
+			"tabId": "chromHMM",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCFF738TKN_chromHMM_log2.json",
+			"stepId": "0"
+		},
+		{
+			"id": "chromHMM-freq",
+			"dataType": "barchart",
+			"layoutId": "DoubleChart",
+			"layoutTitle": "STATE ENRICHMENT",
+			"tabId": "chromHMM",
+			"URL": "http://localhost:8081/localdata/ENCODE/CS_CTCF/ENCFF738TKN_chromHMM_freq.json",
 			"stepId": "1"
 		}
 	]
