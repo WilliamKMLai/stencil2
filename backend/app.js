@@ -160,7 +160,13 @@ app.post('/login', async function(req, res) {
 	}
 });
 
-
+app.get("/guest", function (req, res) {
+  let frontCaller = process.env.FRONT_API;
+  req.session.loggedin = true;
+  req.session.role = "guest";
+  req.session.username = "guest";
+  return res.redirect(frontCaller);
+});
 
 app.post('/register', async function(req, res) {
   let frontCaller = process.env.FRONT_API;
@@ -335,6 +341,7 @@ app.post('/edituser', async function(req, res) {
   }
 
 });
+
 
 
 app.get("/logout", function (req, res) {

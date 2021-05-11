@@ -80,6 +80,7 @@ class LoginPage extends React.Component {
     tabnames.push(<Tab label="Local Login" key="0" />);
     tabnames.push(<Tab label="Single Sign-on" key="1" />);
     tabnames.push(<Tab label="Register" key="2" />);
+    tabnames.push(<Tab label="Guest Login" key="3" />);
 
     let content = "";
     let headerMsg = "";
@@ -136,6 +137,9 @@ class LoginPage extends React.Component {
         break;
         case 2:
           content = <Register />
+        break;
+        case 3:
+          content = <Guest />
         break;
         default:
           content = <LoginBox />
@@ -250,6 +254,22 @@ class SSOlogin extends React.Component{
       <div>
         <Typography variant="subtitle1" gutterBottom>
             <a href={Config.settings.SSOURL}>Click</a> if not redirected
+        </Typography>
+      </div>
+    )
+  }
+}
+
+class Guest extends React.Component{
+
+  componentDidMount(){
+    window.location.href =  Config.settings.apiURL + "/guest";
+  } 
+  render() {
+    return(
+      <div>
+        <Typography variant="subtitle1" gutterBottom>
+            <a href={Config.settings.apiURL + "/guest"}>Click</a> if not redirected to guest page.
         </Typography>
       </div>
     )
