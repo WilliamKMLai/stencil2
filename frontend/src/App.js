@@ -212,22 +212,18 @@ class App extends Component {
         <CssBaseline />
         <div>
           <BrowserRouter>
-            {this.state.login ? (
               <DataProvider value={appData}>
                 <Navbar uid={this.state.uid} role={this.state.role} currentProj={this.state.currentProject} searchOptions={this.state.allLibraryList}  defaultText="Search by experiment ID" handle="getLib"  />
                 <Switch>
-                  <Route exact path="/login" component={LoginPage} />
-                  <Route exact path="/admin" component={AdminPage} />
-                  <Route exact path="/account" component={AccountPage} />
-                  <Route exact path="/edituser/:uid" component={EditUserPage} />
                   <Route exact path="/project/:proj_id" component={HomePage} />
+                  <Route exact path="/login" component={LoginPage} />
+                  <Route exact path="/admin" component={this.state.login? (AdminPage):(LoginPage)} />
+                  <Route exact path="/account" component={this.state.login? (AccountPage):(LoginPage)} />
+                  <Route exact path="/edituser/:uid" component={this.state.login? (EditUserPage):(LoginPage)} />
                   <Route exact path="/getLib/:library_id" component={Library} />
-                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/" component={this.state.login? (HomePage):(LoginPage)} />
                 </Switch>
               </DataProvider>
-            ) : (
-              <Route component={LoginPage} />
-            )}
           </BrowserRouter>
         </div>
       </MuiThemeProvider>

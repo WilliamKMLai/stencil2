@@ -148,7 +148,7 @@ class HomePage extends React.Component {
                   Browse Experiments
                 </Typography>
                 <Typography variant="subtitle2" gutterBottom>
-                Logged in as: {this.context.uid}
+                {(this.context.login)?("Logged in as: " + this.context.uid):(<a href="../login"> You need to login first. </a>)}
                 </Typography>
                 <Divider />
               </div>
