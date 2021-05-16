@@ -113,16 +113,28 @@ class App extends Component {
     const apiBaseURL =  Config.settings.apiURL;
     const libraryEndPoint = Config.settings.librariesEndPoint;
 
+	// retrieve all project id for the first time
+	let mode = 0 
+
     const url = window.location.href;
     let proj = "";
-    const found = url.match("project/([^?]+)");
+    let found = url.match("project/([^?]+)");
     if (found){
       //proj = found[1];
+	  mode = 0;
       proj = decodeURI(found[1]);
     }
 
+	//
+    found = url.match("getLib");
+    if (found){
+      //proj = found[1];
+	  mode = 2;
+    }
 
-
+    if (mode === 0 )
+    {
+		console.log("mode : 0");
     let proj2Libs = {};
     let backendURL = apiBaseURL + libraryEndPoint;
     let backendURL2 = apiBaseURL + "/libraries/projdesc";
@@ -167,7 +179,7 @@ class App extends Component {
 
           //console.log(res2);
           this.setState({uid: theUid, role:theRole, allLibraryList: items, currentProject:proj, projList:projSearchList, login:true, projDesc:res2.data });
-
+          window.localStorage.setItem("locaState", JSON.stringify(this.state));
         }
         else
         {
@@ -180,7 +192,13 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-
+    }
+	else {
+		console.log("mode : 2");
+		let stickyValue = window.localStorage.getItem("locaState");
+		stickyValue = JSON.parse(stickyValue);
+		this.setState(stickyValue);
+	}
     }
 
   render() {
