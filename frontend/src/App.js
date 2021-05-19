@@ -116,6 +116,7 @@ class App extends Component {
 	// retrieve all project id for the first time
 	let mode = 0 
 
+    //mode 0: load to project information
     const url = window.location.href;
     let proj = "";
     let found = url.match("project/([^?]+)");
@@ -125,7 +126,7 @@ class App extends Component {
       proj = decodeURI(found[1]);
     }
 
-	//
+	//mode 2: when switch library, no need to reload project information
     found = url.match("getLib");
     if (found){
       //proj = found[1];
@@ -179,7 +180,7 @@ class App extends Component {
 
           //console.log(res2);
           this.setState({uid: theUid, role:theRole, allLibraryList: items, currentProject:proj, projList:projSearchList, login:true, projDesc:res2.data });
-          window.localStorage.setItem("locaState", JSON.stringify(this.state));
+          window.localStorage.setItem("localState", JSON.stringify(this.state));
         }
         else
         {
@@ -195,7 +196,7 @@ class App extends Component {
     }
 	else {
 		console.log("mode : 2");
-		let stickyValue = window.localStorage.getItem("locaState");
+		let stickyValue = window.localStorage.getItem("localState");
 		stickyValue = JSON.parse(stickyValue);
 		this.setState(stickyValue);
 	}
@@ -233,7 +234,7 @@ class App extends Component {
               <DataProvider value={appData}>
                 <Navbar uid={this.state.uid} role={this.state.role} currentProj={this.state.currentProject} searchOptions={this.state.allLibraryList}  defaultText="Search by experiment ID" handle="getLib"  />
                 <Switch>
-                  <Route exact path="/project/:proj_id" component={HomePage} />
+                  <Route exact path="/project/:proj_id" component={this.state.login? (HomePage):(LoginPage)} />
                   <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/admin" component={this.state.login? (AdminPage):(LoginPage)} />
                   <Route exact path="/account" component={this.state.login? (AccountPage):(LoginPage)} />
