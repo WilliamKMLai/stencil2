@@ -17,6 +17,30 @@ const layoutFormat = {
     }
   },
 
+  SingleChart_2: {
+    layOut: [[0]],
+    direction: "column",
+    plotSizes: {
+      0:[800,600],
+    }
+  },
+
+  SingleChart_3: {
+    layOut: [[0]],
+    direction: "column",
+    plotSizes: {
+      0:[800,600],
+    }
+  },
+
+  SingleChart_4: {
+    layOut: [[0]],
+    direction: "column",
+    plotSizes: {
+      0:[800,600],
+    }
+  },
+
   DoubleChart: {
     layOut: [[0], [1]],
     direction: "column",

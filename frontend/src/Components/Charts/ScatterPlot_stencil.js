@@ -44,6 +44,7 @@ function ScatterPlot_stencil(props) {
   } else if (plotColor.length === 0) {
     plotColor = "#646464";
   }
+  //console.log(plotColor);
 
   // Scatterplot settings
   const plotOptions = {
@@ -61,14 +62,14 @@ function ScatterPlot_stencil(props) {
               }:{ line: { stroke: "#333333", strokeWidth: 1 } })
             }
           }:{grid: { line: { stroke: "#333333", strokeWidth: 1 } } }),
-          axis: { domain: { line: { stroke: "#000000", strokeWidth: 1 } }, ticks: { line: { stroke: "#000000", strokeWidth: 1 } } },
+          axis: { egend: {text: { fontSize: 20 }}, domain: { line: { stroke: "#000000", strokeWidth: 1 } }, ticks: { line: { stroke: "#000000", strokeWidth: 1 } } },
         },
        }
       :{
         theme: {
           fontSize: 14,
           fontFamily: "Roboto Slab",
-          axis: { domain: { line: { stroke: "#000000", strokeWidth: 1 } }, ticks: { line: { stroke: "#000000", strokeWidth: 1 } } },
+          axis: { legend: {text: { fontSize: 20 }}, domain: { line: { stroke: "#000000", strokeWidth: 1 } }, ticks: { line: { stroke: "#000000", strokeWidth: 1 } } },
           grid: { line: { stroke: "#333333", strokeWidth: 1 } }
         }
       }),
@@ -138,11 +139,27 @@ function ScatterPlot_stencil(props) {
             axisLeft: { tickSize: 5, tickPadding: 5, tickRotation: 0, orient: 'left', legend: 'Y-axis', legendPosition: 'middle', legendOffset: -60 },
           }),
 
+      ...(props.chartOptions['axisTop']?{
+          axisTop: {
+              ...(props.chartOptions['axisTop']['tickSize']?{ tickSize: props.chartOptions['axisTop']['tickSize']}:{ tickSize: 0 }),
+              ...(props.chartOptions['axisTop']['tickPadding']?{ tickPadding: props.chartOptions['axisTop']['tickPadding']}:{ tickPadding: 0 }),
+              ...(props.chartOptions['axisTop']['tickRotation']?{ tickRotation: props.chartOptions['axisTop']['tickRotation'] }:{ tickRotation: 45 }),
+              ...(props.chartOptions['axisTop']['orient']?{ orient: props.chartOptions['axisTop']['orient'] }:{ orient: 'top' }),
+              ...(props.chartOptions['axisTop']['legend']?{ legend: props.chartOptions['axisTop']['legend'] }:{ legend: "" }),
+              ...(props.chartOptions['axisTop']['legendPosition']?{ legendPosition: props.chartOptions['axisTop']['legendPosition'] }:{ legendPosition: "middle"}),
+              ...(props.chartOptions['axisTop']['legendOffset']?{ legendOffset: props.chartOptions['axisTop']['legendOffset'] }:{ legendOffset: -20}),
+              ...(props.chartOptions['axisTop']['tickValues']?{ tickValues: props.chartOptions['axisTop']['tickValues'] }:{ tickValues: null })            },
+        }
+        :{ axisTop: null }),
+
+      ...(props.chartOptions['blendMode']?{blendMode: props.chartOptions['blendMode']}:{ blendMode: 'normal' }),
+
       //Always finish live chart with these
       animate: true,
       motionStiffness: 90,
       motionDamping: 15
   };
+  //console.log(plotOptions);
 
   // Function to export the plot as svg
   let svgString = "";

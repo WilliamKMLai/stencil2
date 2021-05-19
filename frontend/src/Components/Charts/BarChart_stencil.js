@@ -72,55 +72,44 @@ function BarChart_stencil(props) {
 
     ...(props.chartOptions['axisBottom']?{
             axisBottom: {
-            ...(props.chartOptions['axisBottom']['tickSize']?
-              { tickSize: props.chartOptions['axisBottom']['tickSize']}:
-              { tickSize: 5 }),
-            ...(props.chartOptions['axisBottom']['tickPadding']?
-              { tickPadding: props.chartOptions['axisBottom']['tickPadding']}:
-              { tickPadding: 5 }),
-            ...(props.chartOptions['axisBottom']['tickRotation']?
-              { tickRotation: props.chartOptions['axisBottom']['tickRotation'] }:
-              { tickRotation: 45 }),
-            ...(props.chartOptions['axisBottom']['legend']?
-              { legend: props.chartOptions['axisBottom']['legend'] }:
-              { legend: props.chartOptions['keys'][0]}),
-            ...(props.chartOptions['axisBottom']['legendPosition']?
-              { legendPosition: props.chartOptions['axisBottom']['legendPosition'] }:
-              { legendPosition: "middle"} ),
-            ...(props.chartOptions['axisBottom']['legendOffset']?
-              { legendOffset: props.chartOptions['axisBottom']['legendOffset'] }:
-              { legendOffset: 60} )
+            ...(props.chartOptions['axisBottom']['tickSize']?{ tickSize: props.chartOptions['axisBottom']['tickSize']}:{ tickSize: 5 }),
+            ...(props.chartOptions['axisBottom']['tickPadding']?{ tickPadding: props.chartOptions['axisBottom']['tickPadding']}:{ tickPadding: 5 }),
+            ...(props.chartOptions['axisBottom']['tickRotation']?{ tickRotation: props.chartOptions['axisBottom']['tickRotation'] }:{ tickRotation: 45 }),
+            ...(props.chartOptions['axisBottom']['legend']?{ legend: props.chartOptions['axisBottom']['legend'] }:{ legend: props.chartOptions['keys'][0]}),
+            ...(props.chartOptions['axisBottom']['legendPosition']?{ legendPosition: props.chartOptions['axisBottom']['legendPosition'] }:{ legendPosition: "middle"} ),
+            ...(props.chartOptions['axisBottom']['legendOffset']?{ legendOffset: props.chartOptions['axisBottom']['legendOffset'] }:{ legendOffset: 60} )
           },
       }
       :{
         axisBottom: { tickSize: 5, tickPadding: 5, tickRotation: 45, legend: props.chartOptions['keys'][0], legendPosition: "middle", legendOffset: 60 },
       }),
 
-    ...(props.chartOptions['axisLeft']?{
+      ...(props.chartOptions['axisLeft']?{
             axisLeft: {
-            ...(props.chartOptions['axisLeft']['tickSize']?
-              { tickSize: props.chartOptions['axisLeft']['tickSize']}:
-              { tickSize: 5 }),
-            ...(props.chartOptions['axisLeft']['tickPadding']?
-              { tickPadding: props.chartOptions['axisLeft']['tickPadding']}:
-              { tickPadding: 5 }),
-            ...(props.chartOptions['axisLeft']['tickRotation']?
-              { tickRotation: props.chartOptions['axisLeft']['tickRotation'] }:
-              { tickRotation: 0 }),
-            ...(props.chartOptions['axisLeft']['legend']?
-              { legend: props.chartOptions['axisLeft']['legend'] }:
-              { legend: props.chartOptions['keys'][1]}),
-            ...(props.chartOptions['axisLeft']['legendPosition']?
-              { legendPosition: props.chartOptions['axisLeft']['legendPosition'] }:
-              { legendPosition: "middle"} ),
-            ...(props.chartOptions['axisLeft']['legendOffset']?
-              { legendOffset: props.chartOptions['axisLeft']['legendOffset'] }:
-              { legendOffset: -50} )
+            ...(props.chartOptions['axisLeft']['tickSize']?{ tickSize: props.chartOptions['axisLeft']['tickSize']}:{ tickSize: 5 }),
+            ...(props.chartOptions['axisLeft']['tickPadding']?{ tickPadding: props.chartOptions['axisLeft']['tickPadding']}:{ tickPadding: 5 }),
+            ...(props.chartOptions['axisLeft']['tickRotation']?{ tickRotation: props.chartOptions['axisLeft']['tickRotation'] }:{ tickRotation: 0 }),
+            ...(props.chartOptions['axisLeft']['legend']?{ legend: props.chartOptions['axisLeft']['legend'] }:{ legend: props.chartOptions['keys'][1]}),
+            ...(props.chartOptions['axisLeft']['legendPosition']?{ legendPosition: props.chartOptions['axisLeft']['legendPosition'] }:{ legendPosition: "middle"} ),
+            ...(props.chartOptions['axisLeft']['legendOffset']?{ legendOffset: props.chartOptions['axisLeft']['legendOffset'] }:{ legendOffset: -50} )
           },
       }
       :{
         axisLeft: { tickSize: 5, tickPadding: 5, tickRotation: 0, legend: props.chartOptions['keys'][1], legendPosition: "middle", legendOffset: -50 },
       }),
+
+      ...(props.chartOptions['axisTop']?{
+          axisTop: {
+              ...(props.chartOptions['axisTop']['tickSize']?{ tickSize: props.chartOptions['axisTop']['tickSize']}:{ tickSize: 0 }),
+              ...(props.chartOptions['axisTop']['tickPadding']?{ tickPadding: props.chartOptions['axisTop']['tickPadding']}:{ tickPadding: 0 }),
+              ...(props.chartOptions['axisTop']['tickRotation']?{ tickRotation: props.chartOptions['axisTop']['tickRotation'] }:{ tickRotation: 45 }),
+              ...(props.chartOptions['axisTop']['orient']?{ orient: props.chartOptions['axisTop']['orient'] }:{ orient: 'top' }),
+              ...(props.chartOptions['axisTop']['legend']?{ legend: props.chartOptions['axisTop']['legend'] }:{ legend: "" }),
+              ...(props.chartOptions['axisTop']['legendPosition']?{ legendPosition: props.chartOptions['axisTop']['legendPosition'] }:{ legendPosition: "middle"}),
+              ...(props.chartOptions['axisTop']['legendOffset']?{ legendOffset: props.chartOptions['axisTop']['legendOffset'] }:{ legendOffset: -20}),
+              ...(props.chartOptions['axisTop']['tickValues']?{ tickValues: props.chartOptions['axisTop']['tickValues'] }:{ tickValues: null })            },
+      }
+      :{ axisTop: null }),
 
       ...(props.chartOptions['margin']?{
         margin: {
@@ -135,7 +124,8 @@ function BarChart_stencil(props) {
 
     theme: {
       fontSize: 12,
-      fontFamily: "Roboto Slab"
+      fontFamily: "Roboto Slab",
+      axis: { legend: {text: { fontSize: 18 } } }
     },
     enableGridX: false,
     enableGridY: true,
