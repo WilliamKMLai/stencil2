@@ -326,7 +326,7 @@ app.post('/edituser', async function(req, res) {
       await doc.updateOne(update);
     }
     if (newprojects) {
-      let parray = newprojects.split(/[ ,;\t]+/)
+      let parray = newprojects.split(/[,;]+/)
       const update = { projects: parray };
       await doc.updateOne(update);
     }
