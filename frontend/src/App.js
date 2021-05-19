@@ -114,7 +114,7 @@ class App extends Component {
     const libraryEndPoint = Config.settings.librariesEndPoint;
 
 	// retrieve all project id for the first time
-	let mode = 0 
+	let mode = 0
 
     //mode 0: load to project information
     const url = window.location.href;
@@ -135,7 +135,7 @@ class App extends Component {
 
     if (mode === 0 )
     {
-		console.log("mode : 0");
+		//console.log("mode : 0");
     let proj2Libs = {};
     let backendURL = apiBaseURL + libraryEndPoint;
     let backendURL2 = apiBaseURL + "/libraries/projdesc";
@@ -195,7 +195,7 @@ class App extends Component {
       });
     }
 	else {
-		console.log("mode : 2");
+		//console.log("mode : 2");
 		let stickyValue = window.localStorage.getItem("localState");
 		stickyValue = JSON.parse(stickyValue);
 		this.setState(stickyValue);

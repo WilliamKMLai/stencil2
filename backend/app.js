@@ -111,7 +111,7 @@ app.post('/login', async function(req, res) {
 
   if (token){
     console.log("process token");
-    console.log(token);
+    //console.log(token);
         // decrypt token to get user id, and check whether use exist
         var crypto = require('crypto');
         var key = process.env.SSO_TOKEN_KEY ;
@@ -194,8 +194,6 @@ app.post('/register', async function(req, res) {
     {
       hashedPassword = "SSO";
     }
-
-    console.log(hashedPassword);
 
     let userRole = "guest";
     if (username === "root"){
