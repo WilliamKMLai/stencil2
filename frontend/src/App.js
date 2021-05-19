@@ -234,7 +234,7 @@ class App extends Component {
               <DataProvider value={appData}>
                 <Navbar uid={this.state.uid} role={this.state.role} currentProj={this.state.currentProject} searchOptions={this.state.allLibraryList}  defaultText="Search by experiment ID" handle="getLib"  />
                 <Switch>
-                  <Route exact path="/project/:proj_id" component={this.state.login? (HomePage):(LoginPage)} />
+                  <Route exact path="/project/:proj_id" component={this.state.login? (HomePage):(null)} />
                   <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/admin" component={this.state.login? (AdminPage):(LoginPage)} />
                   <Route exact path="/account" component={this.state.login? (AccountPage):(LoginPage)} />
