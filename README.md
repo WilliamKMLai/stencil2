@@ -28,49 +28,48 @@ Installation:
 4. Configure the web site.
 
    a. stencil2/backend/.env
+   ```
+   DB_HOST="localhost"                   // Mongo db host
+   DB_NAME="testDB"                      // Mongo db database name
+   API_PORT="8081                        // API port name
 
-   DB_HOST="localhost" // Mongo db host
-   DB_NAME="testDB"    // Mongo db database name
-   API_PORT="8081          // API port name
+   FRONT_API="https://localhost:3000"    //root URL of the frontend 
 
-   FRONT_API="https://localhost:3000"   //root URL of the frontend 
-
-   HTTPS = true                // using HTTPS
-HTTPSCERT = "/home/xxxxx/fullchain.pem" //path of https certificate   
+   HTTPS = true                          // using HTTPS
+   HTTPSCERT = "/home/xxxxx/fullchain.pem" //path of https certificate   
    HTTPSKEY = "/home/xxxxx/privkey.pem"  //path of https key
 
    SESSION_ENCRYPTION = "xxxxxx"
-SESSION_NAME = "stencil"
+   SESSION_NAME = "stencil"
    MASTER_PWD = "aaaaaa"
 
    PROXY_SETTING='{"/xxxxxx" : "http://xxx.xxxx.xxxx.xx:xxxx"}'   // proxy setting
+   ```
    
    * If your frontend app needs to access api call from 3rd party, e.g. galaxy server, you need to use proxy  through backend server. In the frontend app, the URL "http://xxx.xxxx.xxxx.xx:xxxx/datasets/{options}" should be replaced with "http://backendserver:xxxx/datasets/{options}". Most browsers would prohibit cross-domain call for the front end, so that proxy is needed.
    
    
    
    b. stencil2/frontend/.env
-   
+   ```
    PORT="3000"             // frontend port number
    
    HTTPS=true
    SSL_CRT_FILE=/home/xxxxx/fullchain.pem //path of https certificate   
    SSL_KEY_FILE=/home/xxxxx/privkey.pem //path of https key
    BROWSER=none
-   
-   
+   ```   
    
    c. stencil2/frontend/src/Config.js
-   
+   ```
    apiURL: "http://stencil.biohpc.cornell.edu:8081",    // URL of the backend server
-   
    SSOURL: "https://stencil.biohpc.cornell.edu",   // URL of login page 
    
    samplesEndpoint: "/samples",       // api endpoint for retrieve sample list (deprecated)
    librariesEndPoint: "/libraries",		// api endpoint for retrieve library list
    libraryPageEndPoint: "/libraries/dbid",   //api endpoint for retrieve a library based on db id
    trackHubPrefix: "http://genome.ucsc.edu/cgi-bin/hgTracks?db=sacCer3&hubUrl=" //genome growser URL prefix
-
+   ```
 
 3. Start the backend and front end server.
 
