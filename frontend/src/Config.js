@@ -2,7 +2,7 @@
 
 const settings = {
   apiURL: "http://localhost:8081",
-  SSOURL: "http://localhost",
+  SSOURL: "http://localhost/restricted/index.html",
   librariesEndPoint: "/libraries",
   libraryPageEndPoint: "/libraries/dbid",
   trackHubPrefix: "http://genome.ucsc.edu/cgi-bin/hgTracks?db=sacCer3&hubUrl="

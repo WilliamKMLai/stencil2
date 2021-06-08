@@ -103,8 +103,8 @@ app.post('/login', async function(req, res) {
   console.log("call login");
   // console.log(frontCaller);
   // console.log(req.session.username);
-	var username = req.body.username.trim();
-	var password = req.body.password.trim();
+	var username = req.body.username;
+	var password = req.body.password;
   var token = req.body.token;
 
 
@@ -132,6 +132,8 @@ app.post('/login', async function(req, res) {
         }
   }
 	else if (username && password) {
+    username = username.trim();
+	  password = password.trim();
     let userRecord = await usermodel.findOne({'userName': username});
     if (userRecord){
       let validPassword = false;
