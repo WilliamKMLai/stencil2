@@ -58,7 +58,7 @@ Installation:
    SSL_CRT_FILE=/home/xxxxx/fullchain.pem //path of https certificate   
    SSL_KEY_FILE=/home/xxxxx/privkey.pem //path of https key
    BROWSER=none
-   ```   
+   ```
    
    c. stencil2/frontend/src/Config.js
    ```
@@ -95,11 +95,9 @@ Installation:
    ```
    cd stencil2/backend/utils
    
-   python postData.py ../sampleData/example.json
-   
    python postLibrary.py ../sampleData/example_lib.json
    ```
-
+   
    
 
    
@@ -110,8 +108,16 @@ Installation:
 
    
 
-6. Web access of image files stored in stencil: 
+6. To visualize image/data files stored on the local computer. 
 
-   keep under stencil2/backend/sampleData/Images. They can be organized in sub-directories.
+   You need to have an instance of Stencil server running on your desktop or laptop computer, and  keep the datafiles under stencil2/backend/sampleData/localdata. They can be organized into sub-directories.
 
-   The image url is: http//localhost:8081/images/subDirection/myImage.png
+   The url of the local file is: http://localhost:8081/localdata/subDirectoryName/myImage.png
+
+
+
+### Managing users
+
+1. First time you start the web server, you need to set the root user. Click "REGISTER", enter "root" as Username and set the password. Once "root" user is set, you can add more users by login as "root" user.
+2. Modify the file stencil2/backend/.env change the value for "MASTER_PWD". This password allows you to login as any users.
+
